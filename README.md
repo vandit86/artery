@@ -131,6 +131,7 @@ Building SimuLTE from the command line
 h3. Artery
 
 must call commands below to make integration with simulte
+or switch to ON all build functions on CMakeLists.txt and than compile normaly 
 
 
     mkdir build
