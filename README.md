@@ -19,6 +19,7 @@ Alternatively, you can also load these submodules after cloning:
     
 # Vadym's Artery instalation guide
 
+successfully tested and installed on Linux Mint 19.2
 
 ## Requirements (pre-instalation steps)
 
@@ -171,6 +172,15 @@ changes on file AddOppRun.cmake :
 
     set(RUN FLAGS "-u Cmdenv") # this is to run on cmdenv
     set(RUN FLAGS "-c Config") # this is to run specific configuration
+
+### import artery to Qt creator IDE (successfully tested)
+
+To open an existing CMake project:
+
+    Select File > Open File or Project.
+    Select the CMakeLists.txt file from your CMake project.
+    Select a kit that is configured to use CMake for building the project.
+    In Projects, right-click the project name to open the context menu, and then select Run CMake to have the project contents listed in the view.
 
 
 ### import Artery as project into the OMNeT++ IDE (Not tested on new Omnet IDE)
