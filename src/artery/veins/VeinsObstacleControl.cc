@@ -46,6 +46,7 @@ void VeinsObstacleControl::fetchObstacles(traci::LiteAPI& traci)
         }
     }
     EV_INFO << "Added " << fetched << " obstacles to " << this->getFullPath() << endl;
+    //std::cout<< "Added " << fetched << " obstacles to " << this->getFullPath() << std::endl;
 }
 
 } // namespace artery

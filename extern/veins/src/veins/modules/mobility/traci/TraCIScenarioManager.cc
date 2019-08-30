@@ -323,7 +323,7 @@ void TraCIScenarioManager::init_traci() {
 			EV_DEBUG << "TraCI server \"" << serverVersion << "\" reports API version " << apiVersion << endl;
 		}
 		else {
-			error("TraCI server \"%s\" reports API version %d, which is unsupported. We recommend using SUMO 0.30.0", serverVersion.c_str(), apiVersion);
+                        error("TraCI server \"%s\" reports API version %d, which is unsupported. We recommend using SUMO 0.30.0", serverVersion.c_str(), apiVersion);
 		}
 
 	}

@@ -5,6 +5,7 @@ import artery.veins.ObstacleControl;
 import artery.veins.ConnectionManager;
 import artery.veins.RSU;
 import org.car2x.veins.base.modules.BaseWorldUtility;
+import org.car2x.veins.modules.world.annotations.AnnotationManager;
 import traci.Manager;
 
 network World
@@ -49,6 +50,10 @@ network World
             parameters:
                 middlewareModule = default(".appl.middleware");
                 @display("p=100,20");
+        }
+
+        annotations: AnnotationManager {
+             @display("p=40,50");
         }
 
         rsu[numRoadSideUnits]: RSU {
