@@ -190,3 +190,18 @@ To open an existing CMake project:
     Import -> Select root directory (select directory where you executed step 1) -> Finish
     Right-click on project -> Add OMNeT++ support
 
+### Obstacle visualisation with Omnet++
+
+    Veins config : add and configure AnnotationManager to src/veins/World.ned
+
+    INET config :
+        1)add module from INET packege
+        canvasVisualizer: <default("PhysicalEnvironmentCanvasVisualizer")> like IPhysicalEnvironmentVisualizer {
+        2) convert from osm poly format to INET format using external tool
+        3) add to omnet.ini
+        *.physicalEnvironment.config = xmldoc("obstacles.xml") # physical objects are defined in a separate XML file.
+
+
+
+
+

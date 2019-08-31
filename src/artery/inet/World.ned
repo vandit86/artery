@@ -3,6 +3,7 @@ package artery.inet;
 import artery.storyboard.Storyboard;
 import inet.environment.common.PhysicalEnvironment;
 import inet.environment.contract.IPhysicalEnvironment;
+import inet.visualizer.contract.IPhysicalEnvironmentVisualizer;
 import inet.physicallayer.contract.packetlevel.IRadioMedium;
 import traci.Manager;
 
@@ -28,12 +29,15 @@ network World
                 mediumLimitCache.carrierFrequency = 5.9GHz;
         }
 
+        canvasVisualizer: <default("PhysicalEnvironmentCanvasVisualizer")> like IPhysicalEnvironmentVisualizer {
+            parameters:
+                @display("p=100,70");
+        }
 
         physicalEnvironment: <default("PhysicalEnvironment")> like IPhysicalEnvironment if withPhysicalEnvironment {
-                parameters:
-                    @display("p=100,20");
-            }
-
+                  parameters:
+                      @display("p=100,20");
+          }
 
         storyboard: Storyboard if withStoryboard {
             parameters:
