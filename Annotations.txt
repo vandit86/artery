@@ -1,0 +1,47 @@
+This is where smart city planners hit a stumbling block – roads are being dominated by both larger vehicles and the most vulnerable road users – pedestrians and cyclists.
+
+--> computer vision on simulation : detect VRU on simulation ..
+    RADAR, LIDAR on simulation Implemented (simulated) on Omnet++ (artery) LDM  
+    
+--> data to be shared among vehicles ? 
+    if new actor is detected 
+    if speed is changed 
+    if position changed 
+    Intentions ? Flow -> provided by base station 
+    
+--> LDM Codding to send.. ? whot possible dynamic map codding exists (app level)  Example : OpenLR  
+
+--> Vehicles exchange Floating Car Data (FCD)
+
+--> VRU insertion on SUMO !?! 
+
+--> in-network aggregation, clustering and others in order to reduce the communication overhead
+
+--> heterogeneous vehicular networks (Artery can do this)
+
+--> SDR, cognitive radio and machine learning for vehicle communication scheme 
+
+--> Smart auxiliar Glacess for driver 
+
+--> Environmental Perception Message (EPM), which includes a list of all perceived objects of a vehicle, has been developed and analyzed within a IVC network [6,7].
+
+--> Connectivity maps : hese maps areused  to  geographically  index  the  communication  characteris-tics  of  cellular  networks  and  the  mobile  nodes  connected  tothem.
+
+--> SIMULATORS 
+    
+    --> PreScan simulator 
+    --> The simulation toolkit software SCANeR II
+
+--> VANETZA Project 
+
+    --> Building Vanetza for Cohda MK5 using Cohda SDK [https://github.com/riebl/vanetza/blob/master/doc/cohda-sdk-build.md
+    --> Vanetza Socket Demo:  socktap runs Vanetza on top of Linux raw packet sockets and demonstrates the basic API usage. This enables tests on commodity hardware, i.e. no special V2X or Car2X hardware is required. However, raw packet sockets cannot replace such dedicated hardware entirly. Consider socktap as an experimental application showcasing some of Vanetza's features.
+
+
+Papers to read : 
+Luxembourg SUMO Traffic (LuST) Scenario: 24 Hours of Mobility for Vehicular Networking Research
+eNetEditor: Rapid prototyping urban traffic scenarios for SUMO and evaluating their energy consumption
+
+ 
+    
+

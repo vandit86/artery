@@ -185,21 +185,40 @@ To open an existing CMake project:
 
 ### import Artery as project into the OMNeT++ IDE (Not tested on new Omnet IDE)
 
-
     cmake /artery/root/dir -G 'Eclipse CDT4 - Unix Makefiles'
     Import -> Select root directory (select directory where you executed step 1) -> Finish
     Right-click on project -> Add OMNeT++ support
 
 ### Obstacle visualisation with Omnet++
 
-    Veins config : add and configure AnnotationManager to src/veins/World.ned
+ Veins config :
+    add and configure AnnotationManager to src/veins/World.ned
 
-    INET config :
+ INET config :
         1)add module from INET packege
         canvasVisualizer: <default("PhysicalEnvironmentCanvasVisualizer")> like IPhysicalEnvironmentVisualizer {
         2) convert from osm poly format to INET format using external tool
         3) add to omnet.ini
         *.physicalEnvironment.config = xmldoc("obstacles.xml") # physical objects are defined in a separate XML file.
+
+### use two interfaces (LTE and WLAN)
+
+extend any scenario with Lte.world as main .ned file with
+
+    *.node[*].middleware.services = xmldoc("services.xml")
+
+
+### Sensor measurments representation (frond RADAR and CamSensor)
+
+1) use envmod configuration on artery scenario to see example ..
+add to the services.xml this service :
+
+    <service type="artery.envmod.service.EnvmodPrinter">
+        <listener port="7001" />
+    </service>
+
+this will print on EV_DETAIL log the data from sensors listed on sensors.xml
+
 
 
 

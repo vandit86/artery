@@ -29,7 +29,7 @@ network World
                 mediumLimitCache.carrierFrequency = 5.9GHz;
         }
 
-        canvasVisualizer: <default("PhysicalEnvironmentCanvasVisualizer")> like IPhysicalEnvironmentVisualizer {
+        canvasVisualizer: <default("PhysicalEnvironmentCanvasVisualizer")> like IPhysicalEnvironmentVisualizer if withPhysicalEnvironment {
             parameters:
                 @display("p=100,70");
         }

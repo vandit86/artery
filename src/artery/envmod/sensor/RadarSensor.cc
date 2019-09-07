@@ -28,6 +28,7 @@ void RadarSensor::initialize()
     mGroupFigure = new cGroupFigure(getEgoId().c_str());
     mGlobalEnvironmentModel->getCanvas()->addFigure(mGroupFigure);
     mColor = cFigure::GOOD_DARK_COLORS[getId() % cFigure::NUM_GOOD_DARK_COLORS];
+    //mColor = cFigure::RED;
 
     mRadarConfig.fieldOfView.range = par("fovRange").doubleValue() * boost::units::si::meters;
     mRadarConfig.fieldOfView.angle = par("fovAngle").doubleValue() * boost::units::degree::degrees;
@@ -57,10 +58,9 @@ void RadarSensor::setVisualization(const SensorVisualizationConfig& config)
 {
     assert(mGroupFigure);
     mRadarConfig.visualizationConfig = config;
-
     if(config.sensorCone && !mSensorConeFigure) {
         mSensorConeFigure = new cPolygonFigure("sensor cone");
-        mSensorConeFigure->setLineColor(mColor);
+        mSensorConeFigure->setLineColor(mColor); 
         mGroupFigure->addFigure(mSensorConeFigure);
     } else if (!config.sensorCone && mSensorConeFigure) {
         delete mSensorConeFigure->removeFromParent();

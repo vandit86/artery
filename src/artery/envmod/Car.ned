@@ -8,6 +8,8 @@ package artery.envmod;
 
 import artery.envmod.LocalEnvironmentModel;
 import artery.inet.Car;
+import artery.envmod.service.EnvmodPrinter;
+import artery.application.ItsG5Service;
 
 module Car extends artery.inet.Car
 {

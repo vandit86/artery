@@ -42,7 +42,7 @@ void BaseSensor::initialize()
     cModule* module = findHost()->getSubmodule("middleware");
     Middleware* middleware = dynamic_cast<Middleware*>(module);
     if (middleware == nullptr) {
-        throw cRuntimeError("Middleware not found");
+        throw cRuntimeError("Middleware not found: BaseSensor");
     }
 
     mMiddleware = middleware;

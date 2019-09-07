@@ -79,7 +79,7 @@ void ItsG5BaseService::initialize()
 {
 	Middleware* middleware = dynamic_cast<Middleware*>(getParentModule());
 	if (middleware == nullptr) {
-		throw cRuntimeError("Middleware not found");
+        throw cRuntimeError("Middleware not found ITSG5BaseService");
 	}
 
 	m_middleware = middleware;
