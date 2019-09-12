@@ -55,19 +55,19 @@ libproj library download separately and install (https://debian.pkgs.org/8/debia
 
     sudo apt-get install build-essential gcc g++ bison flex perl tcl-dev tk-dev blt libxml2-dev zlib1g-dev default-jre doxygen graphviz libwebkitgtk-1.0-0 openmpi-bin libopenmpi-dev libpcap-dev autoconf automake libtool libgdal1-dev libfox-1.6-dev libgdal-dev libxerces-c-dev
 
-
-### instalation guide omnet++: 
+__instalation guide omnet++:__ 
     https://doc.omnetpp.org/omnetpp/InstallGuide.pdf
 
-change ./confirguration file: 
-    ./configure WITH_OSGEARTH=no WITH_OSG=no 
+change ./confirguration file if nedded (exluding thouse futures is requered to install sumo):
+    ./configure WITH_OSGEARTH=no WITH_OSG=no
+    make MODE=release
 
-
+If afterwords you need to make changes on config file, you have to remove all previous libraries and recompile OMNeT++:
+    $ make cleanall
+    $ make
  general OMNeT++ requires that its bin directory should be in the PATH. You shouldadd a line something like this to your .bashrc:$ 
-
     export PATH=$HOME/omnetpp-5.5/bin:$PATH
  
-
 ## Artery Build instructions
 
 Veins and Vanetza need to be built before Artery itself.
@@ -139,7 +139,8 @@ or switch to ON all build functions on CMakeLists.txt and than compile normaly
     cd build
     cmake -DWITH_SIMULTE=ON ..
     cmake --build .
- 
+
+check CMakeLists.txt for build options
 
 These steps create a build directory for Artery, configure the build directory and finally build Artery there.
 
@@ -168,8 +169,9 @@ run this command on root directory to see the example work
 
 #### running without OMNET++ GUI
 
-changes on file AddOppRun.cmake :
-
+changes on file AddOppRun.cmake 
+    
+    # set(RUN_FLAGS "" CACHE STRING "Flags appended to run command (and debug)")
     set(RUN FLAGS "-u Cmdenv") # this is to run on cmdenv
     set(RUN FLAGS "-c Config") # this is to run specific configuration
 
@@ -200,24 +202,30 @@ To open an existing CMake project:
         2) convert from osm poly format to INET format using external tool
         3) add to omnet.ini
         *.physicalEnvironment.config = xmldoc("obstacles.xml") # physical objects are defined in a separate XML file.
-
+        
 ### use two interfaces (LTE and WLAN)
 
 extend any scenario with Lte.world as main .ned file with
 
     *.node[*].middleware.services = xmldoc("services.xml")
 
+include on services.xml all required services i.e. CAM, DEM , Radar (see below)  
+
 
 ### Sensor measurments representation (frond RADAR and CamSensor)
 
-1) use envmod configuration on artery scenario to see example ..
+1) **use envmod configuration on artery scenario to see example** ..
 add to the services.xml this service :
 
     <service type="artery.envmod.service.EnvmodPrinter">
         <listener port="7001" />
     </service>
 
-this will print on EV_DETAIL log the data from sensors listed on sensors.xml
+**this will print on EV DETAIL log the data from sensors listed on sensors.xml**
+
+### Add VRU on suimulation 
+
+
 
 
 

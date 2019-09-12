@@ -33,7 +33,8 @@ This is where smart city planners hit a stumbling block – roads are being domi
     --> The simulation toolkit software SCANeR II
 
 --> VANETZA Project 
-
+    
+    --> Facilities layer on vanetsa just save ego vehicle Path (last 3 points)   
     --> Building Vanetza for Cohda MK5 using Cohda SDK [https://github.com/riebl/vanetza/blob/master/doc/cohda-sdk-build.md
     --> Vanetza Socket Demo:  socktap runs Vanetza on top of Linux raw packet sockets and demonstrates the basic API usage. This enables tests on commodity hardware, i.e. no special V2X or Car2X hardware is required. However, raw packet sockets cannot replace such dedicated hardware entirly. Consider socktap as an experimental application showcasing some of Vanetza's features.
 

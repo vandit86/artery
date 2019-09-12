@@ -85,12 +85,17 @@ macro(add_opp_run _name)
 
     _opp_run_command(${_target} _exec)
 
+    #VAD comment to use run flags 
     set(RUN_FLAGS "" CACHE STRING "Flags appended to run command (and debug)")
+    #set(RUN_FLAGS "-u Cmdenv")
+    # -c Specific scenario 
+    #set(RUN_FLAGS "-c Cmdenv")
     string(REPLACE " " ";" _run_flags "${RUN_FLAGS}")
     add_custom_target(run_${_name}
         COMMAND ${_exec} ${_config} ${_run_flags}
         WORKING_DIRECTORY ${_working_directory}
         VERBATIM)
+    #message(STATUS " ${_run_flags} =run flags")
 
     set_target_properties(run_${_name} PROPERTIES
         OPP_RUN_TARGET ${_target}
