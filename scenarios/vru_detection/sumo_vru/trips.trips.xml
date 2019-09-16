@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- generated on 2019-09-15 17:12:29.972903 by $Id$
+  options: -n net.net.xml -r net.rou.xml <doubleminus>verbose <doubleminus>begin=0 <doubleminus>end=20 <doubleminus>pedestrians
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <person id="0" depart="0.00">
+        <walk from="gneE16" to="gneE11.49"/>
+    </person>
+    <person id="1" depart="1.00">
+        <walk from="gneE12" to="gneE11.49"/>
+    </person>
+    <person id="2" depart="2.00">
+        <walk from="gneE17" to="gneE17"/>
+    </person>
+    <person id="3" depart="3.00">
+        <walk from="gneE11.49" to="-gneE11.50"/>
+    </person>
+    <person id="4" depart="4.00">
+        <walk from="gneE14" to="gneE13"/>
+    </person>
+    <person id="5" depart="5.00">
+        <walk from="-gneE12" to="gneE15"/>
+    </person>
+    <person id="6" depart="6.00">
+        <walk from="gneE17" to="gneE17"/>
+    </person>
+    <person id="7" depart="7.00">
+        <walk from="gneE17" to="gneE12"/>
+    </person>
+    <person id="8" depart="8.00">
+        <walk from="gneE13" to="gneE11.49"/>
+    </person>
+    <person id="9" depart="9.00">
+        <walk from="gneE18" to="-gneE11.50"/>
+    </person>
+    <person id="10" depart="10.00">
+        <walk from="gneE11.49" to="gneE11.49"/>
+    </person>
+    <person id="11" depart="11.00">
+        <walk from="gneE12.52" to="gneE13"/>
+    </person>
+    <person id="12" depart="12.00">
+        <walk from="gneE12.52" to="-gneE11"/>
+    </person>
+    <person id="13" depart="13.00">
+        <walk from="-gneE12.47" to="-gneE11.50"/>
+    </person>
+    <person id="14" depart="14.00">
+        <walk from="gneE14" to="-gneE12.47"/>
+    </person>
+    <person id="15" depart="15.00">
+        <walk from="gneE11" to="gneE12"/>
+    </person>
+    <person id="16" depart="16.00">
+        <walk from="gneE17" to="gneE18"/>
+    </person>
+    <person id="17" depart="17.00">
+        <walk from="gneE18" to="gneE12"/>
+    </person>
+    <person id="18" depart="18.00">
+        <walk from="gneE11.49" to="gneE14"/>
+    </person>
+    <person id="19" depart="19.00">
+        <walk from="gneE17" to="gneE13"/>
+    </person>
+</routes>

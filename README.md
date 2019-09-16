@@ -223,7 +223,26 @@ add to the services.xml this service :
 
 **this will print on EV DETAIL log the data from sensors listed on sensors.xml**
 
-### Add VRU on suimulation 
+
+# SUMO 
+
+use netedit to create scenarious -- *.net.xml 
+
+## Generate random trips  
+
+see 
+    /usr/share/sumo/tools/randomTrips.py --help
+
+## Add VRU on suimulation 
+
+to generate rou.xml file with pedestrians : random pedestrian demand using the option --pedestrians. The option --max-dist <FLOAT> may be used to limit the maximum air distance of pedestrian walks.
+
+    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r net.rou.xml --begin=0 --end=20 --pedestrians
+
+Caution
+
+To ensure proper generation of crossings, road lanes need to prohibit pedestrians either by setting **disallow="pedestrian"** or by explicitly specifying all other allowed classes using attribute allow When adding sidewalks via attribute sidewalkWidth or any of the heuristics above, pedestrians will be forbidden automatically on the remaining lanes.
+
 
 
 

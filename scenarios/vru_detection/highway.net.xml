@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Пт 13 сен 2019 16:35:18 by Eclipse SUMO netedit Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <sumo-net-file value="/home/vad/artery/scenarios/vru_detection/highway.net.xml"/>
+    </input>
+
+    <output>
+        <output-file value="/home/vad/artery/scenarios/vru_detection/highway.net.xml"/>
+    </output>
+
+    <processing>
+        <geometry.max-grade.fix value="false"/>
+        <offset.disable-normalization value="true"/>
+        <lefthand value="false"/>
+    </processing>
+
+    <junctions>
+        <no-internal-links value="true"/>
+        <no-turnarounds value="true"/>
+        <junctions.corner-detail value="0"/>
+        <junctions.limit-turn-speed value="-1"/>
+        <rectangular-lane-cut value="false"/>
+    </junctions>
+
+    <pedestrian>
+        <walkingareas value="false"/>
+    </pedestrian>
+
+</configuration>
+-->
+
+<net version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,1000.00,100.00" origBoundary="-10000000000.000000,-10000000000.000000,10000000000.000000,10000000000.000000" projParameter="+proj=tmerc +ellps=WGS84 +datum=WGS84 +lat_0=49 +lon_0=11 +units=m +no_defs"/>
+
+    <edge id="-gneE1" from="gneJ3" to="gneJ2" priority="-1">
+        <lane id="-gneE1_0" index="0" speed="13.89" length="100.00" shape="200.00,101.60 100.00,101.60"/>
+    </edge>
+    <edge id="-hw0" from="hwEnd" to="hwStart" priority="1" type="highway">
+        <lane id="-hw0_0" index="0" allow="pedestrian" speed="33.33" length="1000.00" width="2.00" shape="0.00,-7.00 1000.00,-7.00"/>
+        <lane id="-hw0_1" index="1" allow="private emergency authority army vip passenger hov taxi bus coach delivery truck trailer motorcycle evehicle" speed="33.33" length="1000.00" width="3.00" shape="0.00,-4.50 1000.00,-4.50"/>
+        <lane id="-hw0_2" index="2" allow="private emergency authority army vip passenger hov taxi bus coach delivery truck trailer motorcycle evehicle" speed="33.33" length="1000.00" width="3.00" shape="0.00,-1.50 1000.00,-1.50"/>
+    </edge>
+    <edge id="gneE1" from="gneJ2" to="gneJ3" priority="-1">
+        <lane id="gneE1_0" index="0" speed="13.89" length="100.00" shape="100.00,98.40 200.00,98.40"/>
+    </edge>
+    <edge id="hw0" from="hwStart" to="hwEnd" priority="1" type="highway" length="1000.00">
+        <lane id="hw0_0" index="0" allow="pedestrian" speed="33.33" length="1000.00" width="2.00" shape="1000.00,7.00 0.00,7.00"/>
+        <lane id="hw0_1" index="1" allow="private emergency authority army vip passenger hov taxi bus coach delivery truck trailer motorcycle evehicle" speed="33.33" length="1000.00" width="3.00" shape="1000.00,4.50 0.00,4.50"/>
+        <lane id="hw0_2" index="2" allow="private emergency authority army vip passenger hov taxi bus coach delivery truck trailer motorcycle evehicle" speed="33.33" length="1000.00" width="3.00" shape="1000.00,1.50 0.00,1.50"/>
+    </edge>
+
+    <junction id="gneJ2" type="dead_end" x="100.00" y="100.00" incLanes="-gneE1_0" intLanes="" shape="100.00,100.00 100.00,103.20 100.00,100.00"/>
+    <junction id="gneJ3" type="dead_end" x="200.00" y="100.00" incLanes="gneE1_0" intLanes="" shape="200.00,100.00 200.00,96.80 200.00,100.00"/>
+    <junction id="hwEnd" type="dead_end" x="0.00" y="0.00" incLanes="hw0_0 hw0_1 hw0_2" intLanes="" shape="0.00,0.00 0.00,8.00 0.00,0.00"/>
+    <junction id="hwStart" type="dead_end" x="1000.00" y="0.00" incLanes="-hw0_0 -hw0_1 -hw0_2" intLanes="" shape="1000.00,0.00 1000.00,-8.00 1000.00,0.00"/>
+
+</net>

@@ -9,4 +9,5 @@
 		</visualization>
 	</sensor>
     <sensor type="artery.envmod.sensor.CamSensor" />
+
 </sensors>

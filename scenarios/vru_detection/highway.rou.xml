@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<routes>
+    <!--minGap="0.5"-->
+   <vType id="car" vClass="passenger" length="5" maxSpeed="30" speedDev="0.0" lcKeepRight="1" color="0,0.67,0"/>
+   <vType id="police" vClass="authority" length="5" maxSpeed="60" speedFactor="1.5" tau="0.5"  guiShape="police"/>
+   <route id="route0" edges="hw0"/>
+
+   <vehicle id="car0" type="car" route="route0" depart="0" departLane="free" departSpeed="max" />
+   <vehicle id="car1" type="car" route="route0" depart="0" departLane="free" departSpeed="max" />
+   <vehicle id="car2" type="car" route="route0" depart="0" departLane="free" departSpeed="max" />
+   
+   <vehicle id="car3" type="police" route="route0" depart="1" departLane="free" departSpeed="max" />
+   <vehicle id="car4" type="police" route="route0" depart="1" departLane="free" departSpeed="max" />
+   <vehicle id="car5" type="police" route="route0" depart="1" departLane="free" departSpeed="max" />
+   
+   <vehicle id="police0" type="police" route="route0" depart="3" departLane="1" departSpeed="max" />
+</routes>
