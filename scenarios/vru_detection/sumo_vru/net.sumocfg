@@ -3,10 +3,19 @@
     <input>
         <net-file value="net.net.xml"/>
         <route-files value="net.rou.xml"/>
+        <additional-files value="trips.trips.xml"/>
     </input>
 
     <time>
         <begin value="0"/>
+        <!--<end value="10000"/>-->
         <step-length value="0.1"/>
     </time>
 </configuration>
+
+<!--
+<route id="route_0" edges="gneE1" color="blue"/>
+    <route id="route_1" edges="-gneE1" color="blue"/>
+    <vehicle id="vehicle_0" type="DEFAULT_PEDTYPE" depart="0.00" color="green" route="route_0"/>
+    <vehicle id="vehicle_1" type="DEFAULT_PEDTYPE" depart="0.00" color="green" route="route_1"/>
+-->

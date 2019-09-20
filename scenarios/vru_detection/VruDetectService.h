@@ -10,6 +10,7 @@ class VruDetectService : public artery::ItsG5Service
 {
     public:
         void trigger() override;
+        void receiveSignal(omnetpp::cComponent*, omnetpp::simsignal_t, omnetpp::cObject*, omnetpp::cObject*) override;
 
     protected:
         void initialize() override;

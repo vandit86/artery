@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Fri Sep 20 01:22:28 2019 by Eclipse SUMO duarouter Version 1.2.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
+
+    <input>
+        <net-file value="net.net.xml"/>
+        <route-files value="trips.trips.xml"/>
+    </input>
+
+    <output>
+        <output-file value="ped.rou.xml"/>
+        <alternatives-output value="ped.rou.alt.xml"/>
+    </output>
+
+    <time>
+        <begin value="2.0"/>
+        <end value="200.0"/>
+    </time>
+
+    <report>
+        <no-warnings value="true"/>
+        <ignore-errors value="true"/>
+        <no-step-log value="true"/>
+    </report>
+
+</configuration>
+-->
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <person id="p0" depart="2.00">
+        <walk edges="gneE25 -gneE25 -gneE27"/>
+    </person>
+    <person id="p1" depart="6.00">
+        <walk edges="gneE25 gneE28"/>
+    </person>
+    <person id="p2" depart="10.00">
+        <walk edges="gneE26 gneE27 -gneE27"/>
+    </person>
+    <person id="p3" depart="14.00">
+        <walk edges="-gneE26 gneE26"/>
+    </person>
+    <person id="p4" depart="18.00">
+        <walk edges="-gneE26 gneE27 -gneE27"/>
+    </person>
+    <person id="p5" depart="22.00">
+        <walk edges="gneE26 gneE25"/>
+    </person>
+    <person id="p6" depart="26.00">
+        <walk edges="-gneE27 gneE28 -gneE28"/>
+    </person>
+    <person id="p7" depart="30.00">
+        <walk edges="gneE28 -gneE27"/>
+    </person>
+    <person id="p8" depart="34.00">
+        <walk edges="gneE27 -gneE25 gneE25"/>
+    </person>
+    <person id="p9" depart="38.00">
+        <walk edges="-gneE27 gneE27"/>
+    </person>
+    <person id="p10" depart="42.00">
+        <walk edges="-gneE25 -gneE27"/>
+    </person>
+    <person id="p11" depart="46.00">
+        <walk edges="gneE27 -gneE27"/>
+    </person>
+    <person id="p12" depart="50.00">
+        <walk edges="gneE26 gneE25"/>
+    </person>
+    <person id="p13" depart="54.00">
+        <walk edges="gneE26 -gneE28"/>
+    </person>
+    <person id="p14" depart="58.00">
+        <walk edges="-gneE28 gneE28"/>
+    </person>
+    <person id="p15" depart="62.00">
+        <walk edges="-gneE27 gneE27 gneE26"/>
+    </person>
+    <person id="p16" depart="66.00">
+        <walk edges="gneE25 -gneE25 -gneE27"/>
+    </person>
+    <person id="p17" depart="70.00">
+        <walk edges="-gneE26 gneE27"/>
+    </person>
+    <person id="p18" depart="74.00">
+        <walk edges="-gneE25 -gneE26"/>
+    </person>
+    <person id="p19" depart="78.00">
+        <walk edges="gneE26 gneE27 -gneE27"/>
+    </person>
+    <person id="p20" depart="82.00">
+        <walk edges="-gneE28 gneE26 -gneE26"/>
+    </person>
+    <person id="p21" depart="86.00">
+        <walk edges="-gneE28 gneE26 -gneE26"/>
+    </person>
+    <person id="p22" depart="90.00">
+        <walk edges="-gneE26 gneE26"/>
+    </person>
+    <person id="p23" depart="94.00">
+        <walk edges="gneE25 -gneE25 -gneE27"/>
+    </person>
+    <person id="p24" depart="98.00">
+        <walk edges="gneE27 -gneE25 gneE25"/>
+    </person>
+    <person id="p25" depart="102.00">
+        <walk edges="-gneE25 -gneE26"/>
+    </person>
+    <person id="p26" depart="106.00">
+        <walk edges="-gneE26 -gneE25"/>
+    </person>
+    <person id="p27" depart="110.00">
+        <walk edges="-gneE27 gneE27 gneE26"/>
+    </person>
+    <person id="p28" depart="114.00">
+        <walk edges="-gneE26 gneE27 -gneE27"/>
+    </person>
+    <person id="p29" depart="118.00">
+        <walk edges="gneE25 gneE28"/>
+    </person>
+    <person id="p30" depart="122.00">
+        <walk edges="-gneE26 gneE27 -gneE27"/>
+    </person>
+    <person id="p31" depart="126.00">
+        <walk edges="-gneE25 gneE25"/>
+    </person>
+    <person id="p32" depart="130.00">
+        <walk edges="-gneE25 gneE28 -gneE28"/>
+    </person>
+    <person id="p33" depart="134.00">
+        <walk edges="-gneE27 -gneE25"/>
+    </person>
+    <person id="p34" depart="138.00">
+        <walk edges="-gneE25 gneE28 -gneE28"/>
+    </person>
+    <person id="p35" depart="142.00">
+        <walk edges="gneE28 gneE25"/>
+    </person>
+    <person id="p36" depart="146.00">
+        <walk edges="gneE28 -gneE28"/>
+    </person>
+    <person id="p37" depart="150.00">
+        <walk edges="gneE28 gneE26 -gneE26"/>
+    </person>
+    <person id="p38" depart="154.00">
+        <walk edges="-gneE26 -gneE25"/>
+    </person>
+    <person id="p39" depart="158.00">
+        <walk edges="-gneE27 -gneE25"/>
+    </person>
+    <person id="p40" depart="162.00">
+        <walk edges="-gneE26 -gneE25 gneE25"/>
+    </person>
+    <person id="p41" depart="166.00">
+        <walk edges="-gneE28 gneE26"/>
+    </person>
+    <person id="p42" depart="170.00">
+        <walk edges="gneE28 gneE25"/>
+    </person>
+    <person id="p43" depart="174.00">
+        <walk edges="-gneE28 gneE28 gneE25"/>
+    </person>
+    <person id="p44" depart="178.00">
+        <walk edges="gneE27 -gneE25 gneE25"/>
+    </person>
+    <person id="p45" depart="182.00">
+        <walk edges="gneE25 gneE26 -gneE26"/>
+    </person>
+    <person id="p46" depart="186.00">
+        <walk edges="-gneE28 gneE28 -gneE25"/>
+    </person>
+    <person id="p47" depart="190.00">
+        <walk edges="-gneE25 -gneE27"/>
+    </person>
+    <person id="p48" depart="194.00">
+        <walk edges="gneE25 -gneE25 -gneE27"/>
+    </person>
+    <person id="p49" depart="198.00">
+        <walk edges="-gneE28 gneE27 -gneE27"/>
+    </person>
+</routes>

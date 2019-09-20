@@ -1,66 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- generated on 2019-09-15 17:12:29.972903 by $Id$
-  options: -n net.net.xml -r net.rou.xml <doubleminus>verbose <doubleminus>begin=0 <doubleminus>end=20 <doubleminus>pedestrians
+<!-- generated on 2019-09-20 01:22:28.720832 by $Id$
+  options: ped.rou.xml
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <person id="0" depart="0.00">
-        <walk from="gneE16" to="gneE11.49"/>
-    </person>
-    <person id="1" depart="1.00">
-        <walk from="gneE12" to="gneE11.49"/>
-    </person>
-    <person id="2" depart="2.00">
-        <walk from="gneE17" to="gneE17"/>
-    </person>
-    <person id="3" depart="3.00">
-        <walk from="gneE11.49" to="-gneE11.50"/>
-    </person>
-    <person id="4" depart="4.00">
-        <walk from="gneE14" to="gneE13"/>
-    </person>
-    <person id="5" depart="5.00">
-        <walk from="-gneE12" to="gneE15"/>
-    </person>
-    <person id="6" depart="6.00">
-        <walk from="gneE17" to="gneE17"/>
-    </person>
-    <person id="7" depart="7.00">
-        <walk from="gneE17" to="gneE12"/>
-    </person>
-    <person id="8" depart="8.00">
-        <walk from="gneE13" to="gneE11.49"/>
-    </person>
-    <person id="9" depart="9.00">
-        <walk from="gneE18" to="-gneE11.50"/>
-    </person>
-    <person id="10" depart="10.00">
-        <walk from="gneE11.49" to="gneE11.49"/>
-    </person>
-    <person id="11" depart="11.00">
-        <walk from="gneE12.52" to="gneE13"/>
-    </person>
-    <person id="12" depart="12.00">
-        <walk from="gneE12.52" to="-gneE11"/>
-    </person>
-    <person id="13" depart="13.00">
-        <walk from="-gneE12.47" to="-gneE11.50"/>
-    </person>
-    <person id="14" depart="14.00">
-        <walk from="gneE14" to="-gneE12.47"/>
-    </person>
-    <person id="15" depart="15.00">
-        <walk from="gneE11" to="gneE12"/>
-    </person>
-    <person id="16" depart="16.00">
-        <walk from="gneE17" to="gneE18"/>
-    </person>
-    <person id="17" depart="17.00">
-        <walk from="gneE18" to="gneE12"/>
-    </person>
-    <person id="18" depart="18.00">
-        <walk from="gneE11.49" to="gneE14"/>
-    </person>
-    <person id="19" depart="19.00">
-        <walk from="gneE17" to="gneE13"/>
-    </person>
+    <trip id="p0" depart="2.00" from="gneE25" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p1" depart="6.00" from="gneE25" to="gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p2" depart="10.00" from="gneE26" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p3" depart="14.00" from="-gneE26" to="gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p4" depart="18.00" from="-gneE26" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p5" depart="22.00" from="gneE26" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p6" depart="26.00" from="-gneE27" to="-gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p7" depart="30.00" from="gneE28" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p8" depart="34.00" from="gneE27" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p9" depart="38.00" from="-gneE27" to="gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p10" depart="42.00" from="-gneE25" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p11" depart="46.00" from="gneE27" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p12" depart="50.00" from="gneE26" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p13" depart="54.00" from="gneE26" to="-gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p14" depart="58.00" from="-gneE28" to="gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p15" depart="62.00" from="-gneE27" to="gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p16" depart="66.00" from="gneE25" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p17" depart="70.00" from="-gneE26" to="gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p18" depart="74.00" from="-gneE25" to="-gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p19" depart="78.00" from="gneE26" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p20" depart="82.00" from="-gneE28" to="-gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p21" depart="86.00" from="-gneE28" to="-gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p22" depart="90.00" from="-gneE26" to="gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p23" depart="94.00" from="gneE25" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p24" depart="98.00" from="gneE27" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p25" depart="102.00" from="-gneE25" to="-gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p26" depart="106.00" from="-gneE26" to="-gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p27" depart="110.00" from="-gneE27" to="gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p28" depart="114.00" from="-gneE26" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p29" depart="118.00" from="gneE25" to="gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p30" depart="122.00" from="-gneE26" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p31" depart="126.00" from="-gneE25" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p32" depart="130.00" from="-gneE25" to="-gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p33" depart="134.00" from="-gneE27" to="-gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p34" depart="138.00" from="-gneE25" to="-gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p35" depart="142.00" from="gneE28" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p36" depart="146.00" from="gneE28" to="-gneE28" type="DEFAULT_PEDTYPE"/>
+    <trip id="p37" depart="150.00" from="gneE28" to="-gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p38" depart="154.00" from="-gneE26" to="-gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p39" depart="158.00" from="-gneE27" to="-gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p40" depart="162.00" from="-gneE26" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p41" depart="166.00" from="-gneE28" to="gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p42" depart="170.00" from="gneE28" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p43" depart="174.00" from="-gneE28" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p44" depart="178.00" from="gneE27" to="gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p45" depart="182.00" from="gneE25" to="-gneE26" type="DEFAULT_PEDTYPE"/>
+    <trip id="p46" depart="186.00" from="-gneE28" to="-gneE25" type="DEFAULT_PEDTYPE"/>
+    <trip id="p47" depart="190.00" from="-gneE25" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p48" depart="194.00" from="gneE25" to="-gneE27" type="DEFAULT_PEDTYPE"/>
+    <trip id="p49" depart="198.00" from="-gneE28" to="-gneE27" type="DEFAULT_PEDTYPE"/>
 </routes>

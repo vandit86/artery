@@ -3,8 +3,14 @@
     <service type="artery.application.CaService">
 		<listener port="2001" />
     </service>
-     <service type="VruDetectService">
+    <service type="VruDetectService">
         <listener port="8001" />
-        <filters><name pattern="police0" /></filters>
+        <!--<filters><name pattern="police0" /></filters>-->
     </service>
+    <!--
+    <service type="artery.application.ExampleService">
+        <listener port="3001" />
+        
+    </service>
+    -->
 </services>

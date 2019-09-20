@@ -237,11 +237,41 @@ see
 
 to generate rou.xml file with pedestrians : random pedestrian demand using the option --pedestrians. The option --max-dist <FLOAT> may be used to limit the maximum air distance of pedestrian walks.
 
-    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r net.rou.xml --begin=0 --end=20 --pedestrians
+    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --begin=0 --end=20 --pedestrians
+
+than you can add generated file to .sumocnfg file , but firs check if not exists same routs or vehicles on net.xml file .. 
+    <additional-files value="ped.rou.xml"/>
 
 Caution
 
 To ensure proper generation of crossings, road lanes need to prohibit pedestrians either by setting **disallow="pedestrian"** or by explicitly specifying all other allowed classes using attribute allow When adding sidewalks via attribute sidewalkWidth or any of the heuristics above, pedestrians will be forbidden automatically on the remaining lanes.
+
+# ERRORS 
+
+## Simaation error 
+
+### error_Lat_Lon
+
+    std::runtime_error: Can't determine size for unaligned PER encoding of type CAM because of Longitude sub-type -- in module (artery::VehicleMiddleware) World.node[0].middleware (id=20), at t=5.56488135023s, event #3569
+
+### Solution 
+
+edit fild on *.net.xml file 
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,-100.00,200.00,100.00" origBoundary="-10000000000.000000,-10000000000.000000,10000000000.000000,10000000000.000000" projParameter="+proj=tmerc +ellps=WGS84 +datum=WGS84 +lat_0=49 +lon_0=11 +units=m +no_defs"/>
+    
+or another example for location fild
+
+    <location netOffset="-526561.27,-5698105.60"
+     convBoundary="0.00,-0.00,5740.81,3968.92"
+     origBoundary="-2.712703,51.422728,-2.534214,51.500660"
+     projParameter="+proj=utm +zone=30 +ellps=WGS84 +datum=WGS84 +units=m 
+     +no_defs"/>
+
+if tou work in NETEDIT: make changes on text editor , and reload network on editor 
+
+## next error... 
+
 
 
 

@@ -7,12 +7,17 @@
 
 using namespace omnetpp;
 using namespace vanetza;
+using namespace artery;
+
+static const simsignal_t scSignalCamReceived = cComponent::registerSignal("CamReceived");
 
 Define_Module(VruDetectService)
+
 
 void VruDetectService::initialize()
 {
     ItsG5BaseService::initialize();
+    subscribe(scSignalCamReceived);
     mVehicleController = &getFacilities().get_const<traci::VehicleController>();
 }
 
@@ -33,4 +38,21 @@ void VruDetectService::trigger()
     packet->setLaneIndex(vehicle_api.getLaneIndex(id));
     packet->setByteLength(40);
     request(req, packet);
+}
+
+void VruDetectService::receiveSignal(cComponent* source, simsignal_t signal, cObject* object, cObject* obj_2)
+{
+    Enter_Method("receiveSignal");
+
+    if (signal == scSignalCamReceived) {
+       // auto& vehicle = getFacilities().get_const<traci::VehicleController>();
+        EV_INFO << "Vehicle " << mVehicleController->getVehicleId() << " received a CAM in sibling serivce\n";
+        std::cout << "Vehicle " << mVehicleController->getVehicleId() << " received a CAM in sibling serivce\n";
+        if (auto cam = dynamic_cast<CaObject*>(object)) {
+            const auto id = cam->asn1()->header.stationID;
+            const auto latitude = cam->asn1()->cam.camParameters.basicContainer.referencePosition.latitude;
+            const auto longitude = cam->asn1()->cam.camParameters.basicContainer.referencePosition.longitude;
+            std::cout << simTime()<< "::id ="<< id << " lat ="<<latitude<< "lon ="<< longitude << std::endl;
+        }
+    }
 }

@@ -113,6 +113,7 @@ void ExampleService::receiveSignal(cComponent* source, simsignal_t signal, cObje
 	if (signal == scSignalCamReceived) {
 		auto& vehicle = getFacilities().get_const<traci::VehicleController>();
 		EV_INFO << "Vehicle " << vehicle.getVehicleId() << " received a CAM in sibling serivce\n";
+        //std::cout << "Vehicle " << vehicle.getVehicleId() << " received a CAM in sibling serivce\n";
 	}
 }
 
