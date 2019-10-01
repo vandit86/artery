@@ -242,10 +242,26 @@ to generate rou.xml file with pedestrians : random pedestrian demand using the o
 than you can add generated file to .sumocnfg file , but firs check if not exists same routs or vehicles on net.xml file .. 
     <additional-files value="ped.rou.xml"/>
 
-Caution
+### Add pedestrians trips using route2trips.py (recomended)
 
-To ensure proper generation of crossings, road lanes need to prohibit pedestrians either by setting **disallow="pedestrian"** or by explicitly specifying all other allowed classes using attribute allow When adding sidewalks via attribute sidewalkWidth or any of the heuristics above, pedestrians will be forbidden automatically on the remaining lanes.
+it was modifyied original sumo route2trips.py  to create trips fo pedestrians (can be run with Omnet++) instantiate pedestrian like vehicle with *type="DEFAULT_PEDTYPE"*
 
+first create routes for vehicles
+
+    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r net.rou.xml --verbose --begin=10 --end=200 --period=4 --min-distance=100 
+    
+then create trips for pedestrians using modifyied route2trips.py and redirect to trips.trips.xml 
+
+    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p" && ./route2trips.py ped.rou.xml > trips.trips.xml 
+
+next, include those files to *.sumocfg 
+    
+    <input>
+        <net-file value="net.net.xml"/>
+        <route-files value="net.rou.xml"/>
+        <additional-files value="trips.trips.xml"/>
+    </input>
+    
 # ERRORS 
 
 ## Simaation error 
