@@ -43,6 +43,9 @@ Papers to read :
 Luxembourg SUMO Traffic (LuST) Scenario: 24 Hours of Mobility for Vehicular Networking Research
 eNetEditor: Rapid prototyping urban traffic scenarios for SUMO and evaluating their energy consumption
 
+c++ : 
+
+Standard Library, Syntax and Semantics, Compiler and Preprocessor, Object Oriented Programming, Pointers and Data Structures
  
     
 

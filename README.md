@@ -250,9 +250,9 @@ first create routes for vehicles
 
     /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r net.rou.xml --verbose --begin=10 --end=200 --period=4 --min-distance=100 
     
-then create trips for pedestrians using modifyied route2trips.py and redirect to trips.trips.xml 
+then create **valid** trips for pedestrians using modifyied route2trips.py and redirect to trips.trips.xml 
 
-    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p" && ./route2trips.py ped.rou.xml > trips.trips.xml 
+    /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p" && ./route2trips.py ped.rou.xml > ped.rou.alt.xml 
 
 next, include those files to *.sumocfg 
     
