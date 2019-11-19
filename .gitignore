@@ -6,4 +6,5 @@ src/artery/messages/*_m.h
 *.kate-swp
 build/
 *.*.user
-
+buld-Release/
+Untraked/

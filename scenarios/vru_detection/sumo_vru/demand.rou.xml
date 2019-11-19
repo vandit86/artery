@@ -64,15 +64,8 @@
    <vType id="vtype0" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="14" color="1,1,0"/>
    
    <vType id="vtype1" vClass="passenger" color="1,0,1"/>
-   <vType id="vtypep" vClass="pedestrian" color="0,255,255"/>
-   
    <flow id="flow0" type="vtype1" route="routedist_1" begin="0" period="3" number="195"/>       
-   <personFlow id="flow1_p" type="vtypep" route="routedist_1" begin="0" period="5" number="195"/> <!--     pedestrian -->
-   
-   <personFlow id="p" begin="0" end="10" period="2">
-       <walk from="beg" to="end"/>
-   </personFlow>
-    
+        
             
 </routes>
 

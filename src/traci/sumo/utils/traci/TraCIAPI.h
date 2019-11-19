@@ -92,6 +92,7 @@ public:
     std::string getString(int cmd, int var, const std::string& id, tcpip::Storage* add = 0);
     std::vector<std::string> getStringVector(int cmd, int var, const std::string& id, tcpip::Storage* add = 0);
     libsumo::TraCIColor getColor(int cmd, int var, const std::string& id, tcpip::Storage* add = 0);
+    bool isPedestrian (const std::string& id);
     /// @}
 
     const tcpip::Storage& getCommandStorage() const {

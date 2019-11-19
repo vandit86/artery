@@ -2,10 +2,19 @@
 <services>
     <service type="artery.application.CaService">
 		<listener port="2001" />
+        <filters>
+            <name pattern="flow0.*" />
+            <!--<penetration rate="0.1" /> -->     
+        </filters>        
     </service>
+    
     <service type="VruDetectService">
         <listener port="8001" />
-        <!--<filters><name pattern="police0" /></filters>-->
+        <!--
+        <filters><name pattern="police0" match="inverse" /></filters>
+        <filters><name pattern="police0" /></filters>
+        -->
+        
     </service>
     <!--
     <service type="artery.application.ExampleService">

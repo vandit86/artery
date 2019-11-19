@@ -76,6 +76,10 @@ void BasicNodeManager::traciInit()
     for (const std::string& id : m_api->vehicle().getIDList()) {
         addVehicle(id);
     }
+    for (const std::string& id : m_api->person().getIDList()) {
+        addVehicle(id);
+    }
+
 }
 
 void BasicNodeManager::traciStep()
@@ -103,9 +107,26 @@ void BasicNodeManager::traciStep()
         }
     }
 
+    // VAD
+    // insert already running pedestrians
+    std::vector<std::string> persons = m_api->person().getIDList();  // get vectror of persons in simulation
+    for (const std::string& id : persons) {
+        // if appers new pedestrians that is not in list add to the list
+        if ( m_vehicles.find(id) == m_vehicles.end() ){
+            addVehicle(id); // add new pedestrian
+        }
+    }
+
     for (auto& vehicle : m_vehicles) {
         const std::string& id = vehicle.first;
         VehicleSink* sink = vehicle.second;
+        //VAD if pedestrian
+        if ( id.rfind("p",0) == 0 ){
+            if (std::find (persons.begin(), persons.end(), id) == persons.end()){
+                removeVehicle(id); // remove if not in actual list of pedestrians
+                continue;
+            }
+        }
         updateVehicle(id, sink);
     }
 

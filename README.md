@@ -233,7 +233,14 @@ use netedit to create scenarious -- *.net.xml
 see 
     /usr/share/sumo/tools/randomTrips.py --help
 
-## Add VRU on suimulation 
+## Add VRU on suimulation (new approach)
+
+crete pedestrians trips using "p" prefix 
+     /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p"
+    and run simulation as usualy previously add generated pedestrians trip file to net.sumocfg .. 
+     
+
+## Add VRU on suimulation (initial way)
 
 to generate rou.xml file with pedestrians : random pedestrian demand using the option --pedestrians. The option --max-dist <FLOAT> may be used to limit the maximum air distance of pedestrian walks.
 

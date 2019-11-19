@@ -324,9 +324,16 @@ TraCIAPI::processSet(int command) {
     return false;
 }
 
+// VAD return true if p prefix is presented
+bool TraCIAPI::isPedestrian(const std::string &id){
+     return (id.rfind("p",0) == 0 );
+}
 
 int
 TraCIAPI::getUnsignedByte(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_UBYTE)) {
         return myInput.readUnsignedByte();
@@ -337,6 +344,9 @@ TraCIAPI::getUnsignedByte(int cmd, int var, const std::string& id, tcpip::Storag
 
 int
 TraCIAPI::getByte(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_BYTE)) {
         return myInput.readByte();
@@ -348,6 +358,10 @@ TraCIAPI::getByte(int cmd, int var, const std::string& id, tcpip::Storage* add) 
 
 int
 TraCIAPI::getInt(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if ( isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+        if (var == libsumo::VAR_LANE_INDEX) return 0 ;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_INTEGER)) {
         return myInput.readInt();
@@ -358,6 +372,9 @@ TraCIAPI::getInt(int cmd, int var, const std::string& id, tcpip::Storage* add) {
 
 double
 TraCIAPI::getDouble(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_DOUBLE)) {
         return myInput.readDouble();
@@ -369,6 +386,9 @@ TraCIAPI::getDouble(int cmd, int var, const std::string& id, tcpip::Storage* add
 libsumo::TraCIPositionVector
 TraCIAPI::getPolygon(int cmd, int var, const std::string& id, tcpip::Storage* add) {
     libsumo::TraCIPositionVector ret;
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_POLYGON)) {
         int size = myInput.readUnsignedByte();
@@ -390,6 +410,9 @@ TraCIAPI::getPolygon(int cmd, int var, const std::string& id, tcpip::Storage* ad
 libsumo::TraCIPosition
 TraCIAPI::getPosition(int cmd, int var, const std::string& id, tcpip::Storage* add) {
     libsumo::TraCIPosition p;
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::POSITION_2D)) {
         p.x = myInput.readDouble();
@@ -402,6 +425,9 @@ TraCIAPI::getPosition(int cmd, int var, const std::string& id, tcpip::Storage* a
 
 libsumo::TraCIPosition
 TraCIAPI::getPosition3D(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     libsumo::TraCIPosition p;
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::POSITION_3D)) {
@@ -415,6 +441,9 @@ TraCIAPI::getPosition3D(int cmd, int var, const std::string& id, tcpip::Storage*
 
 std::string
 TraCIAPI::getString(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_STRING)) {
         return myInput.readString();
@@ -425,6 +454,9 @@ TraCIAPI::getString(int cmd, int var, const std::string& id, tcpip::Storage* add
 
 std::vector<std::string>
 TraCIAPI::getStringVector(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     std::vector<std::string> r;
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_STRINGLIST)) {
@@ -439,6 +471,9 @@ TraCIAPI::getStringVector(int cmd, int var, const std::string& id, tcpip::Storag
 
 libsumo::TraCIColor
 TraCIAPI::getColor(int cmd, int var, const std::string& id, tcpip::Storage* add) {
+    if (isPedestrian(id)){
+        cmd = libsumo::CMD_GET_PERSON_VARIABLE;
+    }
     libsumo::TraCIColor c;
     createCommand(cmd, var, id, add);
     if (processGet(cmd, libsumo::TYPE_COLOR)) {
