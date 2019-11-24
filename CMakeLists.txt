@@ -8,6 +8,7 @@ if(POLICY CMP0078)
 endif()
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON) 
 enable_testing()
 
 find_package(OmnetPP 5.4 REQUIRED)
@@ -73,6 +74,7 @@ option(WITH_TESTBED "Build Artery with testbed feature" ON)
 add_subdirectory(src/artery)
 add_subdirectory(src/traci)
 add_subdirectory(scenarios)
+
 
 # sumo-launchd should be run from root directory for correct file look-up
 set(SUMO_LAUNCHD_ARGUMENTS "--daemon --kill" CACHE STRING "Additional arguments passed to sumo-launchd")

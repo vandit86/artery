@@ -33,19 +33,24 @@ void EnvmodPrinter::trigger()
 
 void EnvmodPrinter::printSensorObjectList(const std::string& title, const TrackedObjectsFilterRange& objs)
 {
-    EV_DETAIL << mEgoId << "--- " << title << " (" << boost::size(objs) << " objects) ---" << std::endl;
+    std::cout << mEgoId << "--- " << title << " (" << boost::size(objs) << " objects) ---" << std::endl;
 
     for (const auto& obj : objs)
     {
         std::weak_ptr<EnvironmentModelObject> obj_ptr = obj.first;
         if (obj_ptr.expired()) continue; /*< objects remain in tracking briefly after leaving simulation */
         const auto& vd = obj_ptr.lock()->getVehicleData();
-        EV_DETAIL
-            << "station ID: " << vd.station_id()
+        std::string id_external = obj_ptr.lock()->getExternalId();
+        int val = static_cast<int>(vd.getStationType());
+        //EV_DETAIL
+
+        std::cout << "station ID: " << vd.station_id()
             << " lon: " << vd.longitude()
             << " lat: " << vd.latitude()
             << " speed: " << vd.speed()
             << " when: " << vd.updated()
+            << "type: "  <<  val
+            << "external_id: " << id_external
             << std::endl;
     }
 }
