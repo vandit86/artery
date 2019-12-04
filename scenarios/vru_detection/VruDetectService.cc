@@ -46,7 +46,7 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
         std::cout<< "Vehicle "<< mEgoId
                  << " receive msg from: "<< detectVruMessage->getVehId()
                  << " at : " << simTime()
-                 << " : ";
+                 << " ped list size :  " << detectVruMessage->getPedIdsArraySize() ;
 
         //GET REAL POSITION and Compare with received one
         for (int i = 0 ; i < detectVruMessage->getPedIdsArraySize() ; i++){
@@ -84,8 +84,6 @@ void VruDetectService::trigger()
 void VruDetectService::detectPedestrians (const artery::TrackedObjectsFilterRange& objs){
 
     auto& ped_api = mVehicleController->getLiteAPI().person();
-
-
     for(const auto &obj : objs ){
         std::weak_ptr<EnvironmentModelObject> obj_ptr = obj.first;
         if (obj_ptr.expired()) continue; /*< objects remain in tracking briefly after leaving simulation */
@@ -104,12 +102,17 @@ void VruDetectService::detectPedestrians (const artery::TrackedObjectsFilterRang
 //                      << ped_api.getPosition(pedId).getString()
 //                      << std::endl;
 
-            if (inSimulation(pedId)){
-                Pedestrian ped;
-                ped.pedId = pedId;
-                ped.x = ped_api.getPosition(pedId).x;
-                ped.y = ped_api.getPosition(pedId).y;
-                pedIds.push_back(ped);
+            // if ped not in list of detected vehicles then add to the list
+            auto pedIt = find_if(pedIds.begin(), pedIds.end(), [&pedId](const Pedestrian& obj) {return obj.pedId == pedId;});
+            if (pedIt == pedIds.end())
+            {
+                if (inSimulation(pedId)){
+                    Pedestrian ped;
+                    ped.pedId = pedId;
+                    ped.x = ped_api.getPosition(pedId).x;
+                    ped.y = ped_api.getPosition(pedId).y;
+                    pedIds.push_back(ped);
+                }
             }
         }
     }
@@ -118,6 +121,7 @@ void VruDetectService::detectPedestrians (const artery::TrackedObjectsFilterRang
        if (simTime()- lastSendTime > vruSendInterval){
            lastSendTime = simTime();
            sendPedestrianInfo(pedIds);
+           pedIds.clear(); // remove all elements from vector after sending ped info
        }
     }
 }
