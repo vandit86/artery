@@ -3,7 +3,7 @@
     <input>
         <net-file value="net.net.xml"/>
         <route-files value="demand.rou.alt.xml"/> <!-- vehicles routs --> 
-        <additional-files value="ped.rou.alt.xml"/> <!-- pedestrians --> 
+        <additional-files value="ped.rou.xml"/> <!-- pedestrians --> 
     </input>
 
     <time>

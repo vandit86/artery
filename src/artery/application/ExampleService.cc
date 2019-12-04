@@ -96,7 +96,7 @@ void ExampleService::trigger()
 			req.gn.its_aid = example_its_aid;
 
 			cPacket* packet = new cPacket("Example Service Packet");
-			packet->setByteLength(42);
+            packet->setByteLength(42);
 
 			// send packet on specific network interface
 			request(req, packet, network.get());

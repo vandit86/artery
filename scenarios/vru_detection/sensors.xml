@@ -8,6 +8,6 @@
 			<showLineOfSight value="true" />
 		</visualization>
 	</sensor>
-    <sensor type="artery.envmod.sensor.CamSensor" />
+   <!-- <sensor type="artery.envmod.sensor.CamSensor" /> -->
 
 </sensors>

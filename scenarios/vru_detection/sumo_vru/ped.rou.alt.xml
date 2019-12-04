@@ -32,5 +32,11 @@
     <person id="p3" depart="1.00">
         <walk cost="89.18" edges="-gneE25 -gneE27"/>
     </person>
+    <person id="p1" depart="1.00">
+        <walk edges="gneE25 gneE26"/>
+    </person>
+    <person id="p2" depart="1.00">
+        <walk edges="-gneE26 -gneE25"/>
+    </person>
     
 </routes>

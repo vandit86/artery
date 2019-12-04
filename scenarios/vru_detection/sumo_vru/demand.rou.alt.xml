@@ -2,12 +2,12 @@
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
          
-    <vehicle id="flow0.2" depart="1.00">
+    <vehicle id="flow0.2" depart="50.00">
         <routeDistribution last="0">
             <route cost="14.40" probability="1.00000000" edges="-gneE27 gneE28"/>
         </routeDistribution>
     </vehicle>  
-    <vehicle id="flow0.3" depart="1.00">
+    <vehicle id="flow0.3" depart="50.00">
         <routeDistribution last="0">
             <route cost="14.40" probability="1.00000000" edges="-gneE28 gneE27"/>
         </routeDistribution>

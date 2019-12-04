@@ -3,6 +3,8 @@
 
 #include "artery/application/ItsG5Service.h"
 #include "artery/envmod/LocalEnvironmentModel.h"
+#include "Pedestrian.h"
+
 
 // forward declaration
 namespace traci { class VehicleController; }
@@ -19,18 +21,29 @@ protected:
     // METHOD CALLED EVERY 0.1s (DEFINED ON OMNET.INI) middelware
     void trigger() override;
     void initialize() override;
-//    void finish() override;
+    void finish() override;
 //    void handleMessage(omnetpp::cMessage*) override;
 
 private:
-    // from example service
+
+    double vruSendInterval;
+    omnetpp::simtime_t lastSendTime;
+    std::vector<Pedestrian> pedIds; // list of detected pedestrians
+
+    bool inSimulation(std::string pedId); // check if pedestrian still presented on simulation
+
+    // my class vars
     const traci::VehicleController* mVehicleController = nullptr;
-    // based on envmod printer
     artery::LocalEnvironmentModel* mLocalEnvironmentModel;
     std::string mEgoId;
+
+
+
     /* detect pedestrians from all enviroupment objects */
     void detectPedestrians (const artery::TrackedObjectsFilterRange& objs);
-    void sendPedestrianInfo(std::string egoId, std::vector<std::string> pedIds);
+    void sendPedestrianInfo(std::vector<Pedestrian> pedIds);
+
+
 
 };
 

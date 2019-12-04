@@ -223,6 +223,15 @@ add to the services.xml this service :
 
 **this will print on EV DETAIL log the data from sensors listed on sensors.xml**
 
+# VRU ON SIMULATION
+## Add VRU on suimulation (new approach)
+
+crete pedestrians trips using "p" prefix
+     /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p"
+    and run simulation as usualy previously add generated pedestrians trip file to net.sumocfg ..
+
+## Drawbacks
+    - for pedestrians added by this way you cannot par("") parameters, it work just for vehicles..
 
 # SUMO 
 
