@@ -26,8 +26,13 @@ protected:
 
 private:
 
+    unsigned long totalDetectPed = 0;
+    double_t totalMeasurments = 0;
+
+    unsigned int instantDetectPedNum = 0; // instant number of detected pedestrian by msg
     double vruSendInterval;
-    omnetpp::simtime_t lastSendTime;
+    omnetpp::simtime_t lastSendTime=0;        // time when send last VRU msg
+    omnetpp::simtime_t lastReceivedTime=0;    // time when receive last VRU message
     std::vector<Pedestrian> pedIds; // list of detected pedestrians
 
     bool inSimulation(std::string pedId); // check if pedestrian still presented on simulation
@@ -41,7 +46,8 @@ private:
 
     /* detect pedestrians from all enviroupment objects */
     void detectPedestrians (const artery::TrackedObjectsFilterRange& objs);
-    void sendPedestrianInfo(std::vector<Pedestrian> pedIds);
+    void sendPedestrianInfo(std::vector<Pedestrian> pedIds);    // groupe ped
+    void sendPedestrianInfo(Pedestrian ped);    // send one ped
 
 
 

@@ -3,7 +3,7 @@
     <service type="artery.application.CaService">
 		<listener port="2001" />
         <filters>
-            <name pattern="flow0.*" />
+            <name pattern="v.*" />
             <!--<penetration rate="0.1" /> -->     
         </filters>        
     </service>
@@ -11,16 +11,15 @@
     <service type="VruDetectService">
         <listener port="8001" />
         <filters>
-            <name pattern="flow0.*" />
+            <name pattern="v.*" />
             <!--<penetration rate="0.1" /> -->     
-        </filters>
-        <!--
-        <filters><name pattern="police0" match="inverse" /></filters>
-        <filters><name pattern="police0" /></filters>
-        -->
-        
+        </filters>      
     </service>
     
+<!--
+<filters><name pattern="police0" match="inverse" /></filters>
+<filters><name pattern="police0" /></filters>
+-->
     <!--
     <service type="artery.envmod.service.EnvmodPrinter">
 		<listener port="3001" />

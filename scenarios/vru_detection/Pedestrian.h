@@ -6,6 +6,7 @@ struct Pedestrian
     std::string pedId;
     double x;
     double y;
+    omnetpp::simtime_t updated;
 
 };
 

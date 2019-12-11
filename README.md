@@ -237,19 +237,51 @@ crete pedestrians trips using "p" prefix
 
 use netedit to create scenarious -- *.net.xml 
 
-## Generate random trips  
+## Manhattan mobility model
+
+[what is this](https://en.wikipedia.org/wiki/Manhattan_mobility_model) 
+[creaing network and trips](https://sumo.dlr.de/docs/Tutorials/Manhattan.html)
+[use netgenerate parametes to configure network](https://sumo.dlr.de/docs/NETGENERATE.html)
+
+### generate random trips for vehicles
+
+__generate routes with destination__ : 
+
+/usr/share/sumo/tools/randomTrips.py -n net.net.xml -r routes.xml -v --begin=0 --end=1 --period=0.1 --min-distance=11500 --max-distance=11750 --prefix "v" --trip-attributes 'departLane="best" departSpeed="max" departPos="random"'    
+
+__use jtsrouter to generate routs without destination__:
+    /usr/share/sumo/tools/randomTrips.py -n net.net.xml -o flows.xml --begin 0 --end 1 --flows 10 --jtrrouter --prefix "v" --trip-attributes 'departPos="random" departSpeed="max"' 
+ 
+    jtrrouter manhattan.jtrrcfg 
+
+_be carful_
+ to have a VRU detect service just for vehicles apply filter on services.xml:     
+     <filters>
+            <name pattern="v.*" />
+            <!--<penetration rate="0.1" /> -->     
+        </filters> 
+ 
+    
+### generate random trips for pedestrians 
+__generate 100 pedestrians on start__
+/usr/share/sumo/tools/randomTrips.py -n net.net.xml -r ped.rou.xml --verbose --begin=0 --end=1 --period=0.01 --min-distance=500 --max-distance=750 --pedestrians --prefix "p" --trip-attributes 'departPos="random"'
 
 see 
     /usr/share/sumo/tools/randomTrips.py --help
-
-## Add VRU on suimulation (new approach)
+    
+## Add VRU on suimulation (recomended)
 
 crete pedestrians trips using "p" prefix 
-     /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p"
-    and run simulation as usualy previously add generated pedestrians trip file to net.sumocfg .. 
-     
+     /usr/share/sumo/tools/randomTrips.py -n net.net.xml  -r ped.rou.xml --verbose --begin=2 --end=100 --period=2 --min-distance=100 --max-distance=400 --pedestrians --prefix "p"    
 
-## Add VRU on suimulation (initial way)
+only for vehicles 
+ --trip-attributes departLane="best" departSpeed="max" departPos="random"'
+ 
+than you can add generated file to .sumocnfg file , but firs check if not exists same routs or vehicles on net.xml file .. 
+    <additional-files value="ped.rou.xml"/>
+  and run simulation as usualy previously add generated pedestrians trip file to net.sumocfg .. 
+
+## Add VRU on suimulation (old approach)
 
 to generate rou.xml file with pedestrians : random pedestrian demand using the option --pedestrians. The option --max-dist <FLOAT> may be used to limit the maximum air distance of pedestrian walks.
 
@@ -258,7 +290,7 @@ to generate rou.xml file with pedestrians : random pedestrian demand using the o
 than you can add generated file to .sumocnfg file , but firs check if not exists same routs or vehicles on net.xml file .. 
     <additional-files value="ped.rou.xml"/>
 
-### Add pedestrians trips using route2trips.py (recomended)
+### Add pedestrians trips using route2trips.py ()
 
 it was modifyied original sumo route2trips.py  to create trips fo pedestrians (can be run with Omnet++) instantiate pedestrian like vehicle with *type="DEFAULT_PEDTYPE"*
 

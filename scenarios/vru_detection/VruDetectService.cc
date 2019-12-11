@@ -23,12 +23,10 @@ void VruDetectService::initialize()
     //read parameters from config file
     vruSendInterval = par("vruSendInterval").doubleValue();
     lastSendTime = simTime();
-//    std::cout<< "INTERVAL "<< vruSendInterval << std::endl;
     //subscribe(scSignalCamReceived);
     mLocalEnvironmentModel = getFacilities().get_mutable_ptr<LocalEnvironmentModel>();
     mEgoId = getFacilities().get_const<traci::VehicleController>().getVehicleId();
     mVehicleController = &getFacilities().get_const<traci::VehicleController>();
-
 }
 
 // indicate packege
@@ -37,12 +35,10 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
     Enter_Method("indicate");
     auto detectVruMessage = check_and_cast<const DetectVRU*>(packet);
 
-//    if (packet->getByteLength() == 40) {
-//        //        EV_INFO << "packet indication on channel " << net.channel << "\n";
-//    }
     auto& ped_api = mVehicleController->getLiteAPI().person();
     //  pedestrians array mast contains values
-    if (detectVruMessage->getPedIdsArraySize() > 0){
+    instantDetectPedNum = detectVruMessage->getPedIdsArraySize();
+    if (instantDetectPedNum > 0){
         std::cout<< "Vehicle "<< mEgoId
                  << " receive msg from: "<< detectVruMessage->getVehId()
                  << " at : " << simTime()
@@ -53,12 +49,9 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
             const Pedestrian& ped = detectVruMessage->getPedIds(i);
             if (inSimulation(ped.pedId)){
                 if (ped_api.getPosition(ped.pedId).x != ped.x || ped_api.getPosition(ped.pedId).y != ped.y){
-//                    std::cout << "\n Real pos: "<< ped.pedId << ": "<<  ped_api.getPosition(ped.pedId).getString();
-//                    std::cout<< "\n received pos (x,y): " << ped.x << ", " << ped.y ;
 
                     double rPosx = ped_api.getPosition(ped.pedId).x ; // actual position of ped
                     double rPosy = ped_api.getPosition(ped.pedId).y ;
-
                     double error = sqrt ( pow((rPosx-ped.x),2) + pow ((rPosy-ped.y),2)); // error distance
                     std::cout<< " Error : " << error;
                 }
@@ -67,14 +60,13 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
         std::cout << "]" <<  std::endl;
     }
     delete(detectVruMessage);
+    lastReceivedTime = simTime(); // save last received time
 }
 
 // called every 0.1s
 void VruDetectService::trigger()
 {
     Enter_Method("trigger");
-//    std::cout << "Trigger: " << mEgoId<<  std::endl;
-
     // get all objects from env
     auto& allObjects = mLocalEnvironmentModel->allObjects();
     detectPedestrians(filterBySensorCategory(allObjects,"Radar"));
@@ -82,47 +74,51 @@ void VruDetectService::trigger()
 
 // select from radar data pedestrians and broadcast this info
 void VruDetectService::detectPedestrians (const artery::TrackedObjectsFilterRange& objs){
-
     auto& ped_api = mVehicleController->getLiteAPI().person();
     for(const auto &obj : objs ){
         std::weak_ptr<EnvironmentModelObject> obj_ptr = obj.first;
         if (obj_ptr.expired()) continue; /*< objects remain in tracking briefly after leaving simulation */
         std::string pedId = obj_ptr.lock()->getExternalId();
         // if object is a pedestrian
-        if ( pedId.rfind("p",0) == 0 ){ // TODO create isPedestrian function
-//            const auto& vd = obj_ptr.lock()->getVehicleData();
-//            std::cout << "Detect ped: " << pedId
-//                      << "pedestrian ID: " << vd.station_id()
-//                      << " lon: " << vd.longitude()
-//                      << " lat: " << vd.latitude()
-//                      << " speed: " << vd.speed()
-//                      << " when: " << vd.updated()
-//                      << " position x: " << vd.position().x/(boost::units::si::meter)
-//                      << " position y: " << vd.position().y/(boost::units::si::meter)
-//                      << ped_api.getPosition(pedId).getString()
-//                      << std::endl;
 
-            // if ped not in list of detected vehicles then add to the list
+        if ( pedId.rfind("p",0) == 0 ){ // TODO create isPedestrian functio
+            // try to find pedestrian on ped list
             auto pedIt = find_if(pedIds.begin(), pedIds.end(), [&pedId](const Pedestrian& obj) {return obj.pedId == pedId;});
+
+            // if ped not in list of detected ped then add to the list
             if (pedIt == pedIds.end())
             {
                 if (inSimulation(pedId)){
                     Pedestrian ped;
                     ped.pedId = pedId;
-                    ped.x = ped_api.getPosition(pedId).x;
-                    ped.y = ped_api.getPosition(pedId).y;
-                    pedIds.push_back(ped);
+                    ped.x = ped_api.getPosition(pedId).x;       // position x
+                    ped.y = ped_api.getPosition(pedId).y;       // position y
+                    ped.updated = simTime();                    // time
+                    pedIds.push_back(ped);                      // insert to list
+                    //sendPedestrianInfo(ped);                  // send one ped info
                 }
             }
         }
     }
+
+    // put to 0 if not receive any message durring 3 intervals of sending
+    if (simTime()- lastReceivedTime > vruSendInterval*3){
+        instantDetectPedNum = 0;
+    }
+
+    // print instant detected vehicles (radar + message)
+    std::cout << mEgoId << " : " << pedIds.size() + instantDetectPedNum << std::endl;
+
+    totalDetectPed+= (pedIds.size() + instantDetectPedNum) ;
+    totalMeasurments++;
+
     if (pedIds.size()>0){
-//        create logic to select moment when to send the  Detect VRU packege
-       if (simTime()- lastSendTime > vruSendInterval){
-           lastSendTime = simTime();
-           sendPedestrianInfo(pedIds);
-           pedIds.clear(); // remove all elements from vector after sending ped info
-       }
+        // create logic to select moment when to send the Detect VRU packege
+        if (simTime()- lastSendTime > vruSendInterval){
+            lastSendTime = simTime();
+            //sendPedestrianInfo(pedIds);
+        }
+        pedIds.clear(); // remove all elements from vector to mantain data updated
     }
 }
 
@@ -146,10 +142,19 @@ void VruDetectService::sendPedestrianInfo(std::vector<Pedestrian> pedIds)
     request(req, packet);
 }
 
+// send just one
+void VruDetectService::sendPedestrianInfo(Pedestrian ped)
+{
+    std::vector<Pedestrian> pedV;
+    pedV.push_back(ped);
+    sendPedestrianInfo(pedV);
+}
+
 void VruDetectService::finish()
 {
     // you could record some scalars at this point
     ItsG5Service::finish();
+    std::cout << "FINISH "<< mEgoId << " : " << totalDetectPed/totalMeasurments << " tcount: "<< totalMeasurments << " totPed: " << totalDetectPed<<std::endl;
 }
 
 //if pedestrian still in simulation

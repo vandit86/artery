@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- generated on 2019-12-11 15:10:03.542639 by $Id$
+  options: -n net.net.xml -r routes.xml -v <doubleminus>begin=0 <doubleminus>end=1 <doubleminus>period=0.1 <doubleminus>min-distance=1500 <doubleminus>prefix v. <doubleminus>trip-attributes departLane="best" departSpeed="max" departPos="random"
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <trip id="v.0" depart="0.00" from="E5F5" to="E5F5" via="A2A1"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.1" depart="0.10" from="F5F4" to="A5B5" via="D0D1"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.2" depart="0.20" from="D0D1" to="C2B2" via="F5F4"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.3" depart="0.30" from="A1A0" to="B3A3" via="F2E2"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.4" depart="0.40" from="A5A4" to="A3A4" via="F0F1"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.5" depart="0.50" from="A4A5" to="C5B5" via="F1F0"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.6" depart="0.60" from="B5C5" to="E5D5" via="D0D1"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.7" depart="0.70" from="F1F0" to="C5D5" via="A0A1"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.8" depart="0.80" from="D1D0" to="E3F3" via="A5B5"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.9" depart="0.90" from="A5B5" to="B3B2" via="F5E5"  departLane="best" departSpeed="max" departPos="random"/>
+    <trip id="v.10" depart="1.00" from="A2B2" to="D0C0" via="F5E5"  departLane="best" departSpeed="max" departPos="random"/>
+</routes>

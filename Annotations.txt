@@ -27,6 +27,22 @@ This is where smart city planners hit a stumbling block – roads are being domi
 
 --> Connectivity maps : hese maps areused  to  geographically  index  the  communication  characteris-tics  of  cellular  networks  and  the  mobile  nodes  connected  tothem.
 
+=========================================================================================
+--> EVALUATE :
+        NUM OF DETECTED VEHICLES (WITH AND WITHOUT VRU DETECT SERVICE)
+        POSITION ERRROR (DIFFERENT SEND LOGIC , WHEHICLES NUMBER .. )
+
+--> PRIORIRY OF MESSAGE REGARDING THE TRAVEL PATH OF pedestrians I.E. CROSSING THE ROAD OR TRAVEL ALONG THE ROAD
+
+--> compare CHANEL UTILIZATION (NUM OF Bytes SENDED)
+________________________________________
+VehId | DETECTED | ERROR | BYTES trans | for different interval
+________________________________________
+
+--> influence on result of number of pedestrians / vehicles
+
+=========================================================================================
+
 --> SIMULATORS 
     
     --> PreScan simulator 
