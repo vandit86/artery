@@ -11,6 +11,7 @@
     <service type="VruDetectService">
         <listener port="8001" />
         <filters>
+            <name pattern="flow0.*" />
             <name pattern="v.*" />
             <!--<penetration rate="0.1" /> -->     
         </filters>      

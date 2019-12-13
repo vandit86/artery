@@ -41,6 +41,8 @@ ________________________________________
 
 --> influence on result of number of pedestrians / vehicles
 
+--> Vehicle/Pedestrian Type 
+
 =========================================================================================
 
 --> SIMULATORS 

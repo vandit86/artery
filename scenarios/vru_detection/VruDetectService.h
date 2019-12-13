@@ -29,11 +29,11 @@ private:
     unsigned long totalDetectPed = 0;
     double_t totalMeasurments = 0;
 
-    unsigned int instantDetectPedNum = 0; // instant number of detected pedestrian by msg
     double vruSendInterval;
+
     omnetpp::simtime_t lastSendTime=0;        // time when send last VRU msg
-    omnetpp::simtime_t lastReceivedTime=0;    // time when receive last VRU message
-    std::vector<Pedestrian> pedIds; // list of detected pedestrians
+    std::vector<Pedestrian> observedPed; // list of instant observed pedestrians by camera/radar
+    std::vector<Pedestrian> receivedPed; // list of instant observed pedestrians by VRU detect service
 
     bool inSimulation(std::string pedId); // check if pedestrian still presented on simulation
 
@@ -46,9 +46,11 @@ private:
 
     /* detect pedestrians from all enviroupment objects */
     void detectPedestrians (const artery::TrackedObjectsFilterRange& objs);
-    void sendPedestrianInfo(std::vector<Pedestrian> pedIds);    // groupe ped
-    void sendPedestrianInfo(Pedestrian ped);    // send one ped
-
+    void sendPedestrianInfo();                                          // send observed ped list on determined time
+    void sendPedestrianInfo(std::vector<Pedestrian> observedPed);       // send list of instant observed ped
+    void sendPedestrianInfo(Pedestrian ped);                            // send one ped
+    void makeCalc();                                                    // make calculations of tracked values
+    void clearObserved();                                               // remove pedestrians out of camera range
 
 
 };

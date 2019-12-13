@@ -34,33 +34,42 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
 {
     Enter_Method("indicate");
     auto detectVruMessage = check_and_cast<const DetectVRU*>(packet);
-
     auto& ped_api = mVehicleController->getLiteAPI().person();
+
     //  pedestrians array mast contains values
-    instantDetectPedNum = detectVruMessage->getPedIdsArraySize();
-    if (instantDetectPedNum > 0){
-        std::cout<< "Vehicle "<< mEgoId
-                 << " receive msg from: "<< detectVruMessage->getVehId()
-                 << " at : " << simTime()
-                 << " ped list size :  " << detectVruMessage->getPedIdsArraySize() ;
+    std::cout<< "Vehicle "<< mEgoId
+             << " receive msg from: "<< detectVruMessage->getVehId()
+             << " at : " << simTime()
+             << " ped list size :  " << detectVruMessage->getPedIdsArraySize() ;
 
-        //GET REAL POSITION and Compare with received one
-        for (int i = 0 ; i < detectVruMessage->getPedIdsArraySize() ; i++){
-            const Pedestrian& ped = detectVruMessage->getPedIds(i);
-            if (inSimulation(ped.pedId)){
-                if (ped_api.getPosition(ped.pedId).x != ped.x || ped_api.getPosition(ped.pedId).y != ped.y){
-
-                    double rPosx = ped_api.getPosition(ped.pedId).x ; // actual position of ped
-                    double rPosy = ped_api.getPosition(ped.pedId).y ;
-                    double error = sqrt ( pow((rPosx-ped.x),2) + pow ((rPosy-ped.y),2)); // error distance
-                    std::cout<< " Error : " << error;
+    //GET REAL POSITION and Compare with received one
+    for (int i = 0 ; i < detectVruMessage->getPedIdsArraySize() ; i++){
+        const Pedestrian& ped = detectVruMessage->getPedIds(i);
+        std::string pedId = ped.pedId;
+        if (inSimulation(pedId)){
+            // try to find pedestrian on received ped list
+            auto pedIt = find_if(receivedPed.begin(), receivedPed.end(), [&pedId](const Pedestrian& obj) {return obj.pedId == pedId;});
+            if (pedIt == receivedPed.end())                 // if ped not in list then add to the list
+            {
+                receivedPed.push_back (ped);                // save to list new ped
+            }
+            else {                                              // update if ped on the list (recently observed)
+                if ((*pedIt).updated < ped.updated){            // and we receive more recent information for this ped
+                    (*pedIt).updated = ped.updated;             // update time
+                    (*pedIt).x = ped.x;                         // position x
+                    (*pedIt).y = ped.y;                         // position y
                 }
             }
+
+            // get position error TODO:: check if  ped or (*pedIt)
+            double rPosx = ped_api.getPosition(pedId).x ; // actual position of ped
+            double rPosy = ped_api.getPosition(pedId).y ;
+            double error = sqrt ( pow((rPosx-ped.x),2) + pow ((rPosy-ped.y),2)); // error distance
+            std::cout<< " || " << ped.pedId << " Error : " << error;
         }
-        std::cout << "]" <<  std::endl;
     }
+    std::cout << "]" <<  std::endl;
     delete(detectVruMessage);
-    lastReceivedTime = simTime(); // save last received time
 }
 
 // called every 0.1s
@@ -69,7 +78,11 @@ void VruDetectService::trigger()
     Enter_Method("trigger");
     // get all objects from env
     auto& allObjects = mLocalEnvironmentModel->allObjects();
-    detectPedestrians(filterBySensorCategory(allObjects,"Radar"));
+
+    detectPedestrians(filterBySensorCategory(allObjects,"Radar"));  // detect ped in camera field of view
+    clearObserved();                                                // remove ped out of camera range
+    makeCalc();                                                     // update observed  values
+    sendPedestrianInfo();                                           // send message to other vehicles
 }
 
 // select from radar data pedestrians and broadcast this info
@@ -79,46 +92,39 @@ void VruDetectService::detectPedestrians (const artery::TrackedObjectsFilterRang
         std::weak_ptr<EnvironmentModelObject> obj_ptr = obj.first;
         if (obj_ptr.expired()) continue; /*< objects remain in tracking briefly after leaving simulation */
         std::string pedId = obj_ptr.lock()->getExternalId();
+
         // if object is a pedestrian
-
-        if ( pedId.rfind("p",0) == 0 ){ // TODO create isPedestrian functio
-            // try to find pedestrian on ped list
-            auto pedIt = find_if(pedIds.begin(), pedIds.end(), [&pedId](const Pedestrian& obj) {return obj.pedId == pedId;});
-
-            // if ped not in list of detected ped then add to the list
-            if (pedIt == pedIds.end())
-            {
-                if (inSimulation(pedId)){
+        if ( pedId.rfind("p",0) == 0 ){                         // TODO create isPedestrian functio
+            if (inSimulation(pedId)){                           // if ped is on simulation
+                // try to find pedestrian on observed ped list
+                auto pedIt = find_if(observedPed.begin(), observedPed.end(), [&pedId](const Pedestrian& obj) {return obj.pedId == pedId;});
+                if (pedIt == observedPed.end())                 // if ped not in list then add to the list
+                {
                     Pedestrian ped;
                     ped.pedId = pedId;
                     ped.x = ped_api.getPosition(pedId).x;       // position x
                     ped.y = ped_api.getPosition(pedId).y;       // position y
                     ped.updated = simTime();                    // time
-                    pedIds.push_back(ped);                      // insert to list
-                    //sendPedestrianInfo(ped);                  // send one ped info
+                    observedPed.push_back(ped);                 // insert to list
+                }
+                else {                                              // update if ped on the list (recently observed)
+                    (*pedIt).updated = simTime();                   // update time
+                    (*pedIt).x = ped_api.getPosition(pedId).x;      // position x
+                    (*pedIt).y = ped_api.getPosition(pedId).y;      // position y
                 }
             }
         }
     }
+}
 
-    // put to 0 if not receive any message durring 3 intervals of sending
-    if (simTime()- lastReceivedTime > vruSendInterval*3){
-        instantDetectPedNum = 0;
-    }
-
-    // print instant detected vehicles (radar + message)
-    std::cout << mEgoId << " : " << pedIds.size() + instantDetectPedNum << std::endl;
-
-    totalDetectPed+= (pedIds.size() + instantDetectPedNum) ;
-    totalMeasurments++;
-
-    if (pedIds.size()>0){
-        // create logic to select moment when to send the Detect VRU packege
+// create logic to select moment when to send the Detect VRU packege
+void VruDetectService::sendPedestrianInfo()
+{
+    if (observedPed.size()>0){
         if (simTime()- lastSendTime > vruSendInterval){
             lastSendTime = simTime();
-            //sendPedestrianInfo(pedIds);
+            sendPedestrianInfo(observedPed);
         }
-        pedIds.clear(); // remove all elements from vector to mantain data updated
     }
 }
 
@@ -138,7 +144,7 @@ void VruDetectService::sendPedestrianInfo(std::vector<Pedestrian> pedIds)
     int i = 0;
     for (i = 0; i < pedIds.size(); i++)
         packet->setPedIds(i,pedIds[i]);
-    packet->setByteLength(40*i);  // size proportional to number of pedestrians
+    packet->setByteLength(10*i);  // size proportional to number of pedestrians
     request(req, packet);
 }
 
@@ -148,6 +154,40 @@ void VruDetectService::sendPedestrianInfo(Pedestrian ped)
     std::vector<Pedestrian> pedV;
     pedV.push_back(ped);
     sendPedestrianInfo(pedV);
+}
+
+// TODO::check interval of time ??
+// make calculation of observed values
+void VruDetectService::makeCalc()
+{
+    // print instant detected vehicles (radar + message)
+    std::cout << mEgoId << " : " << observedPed.size() + receivedPed.size() << std::endl;
+
+    totalDetectPed+= (observedPed.size() + receivedPed.size()) ;
+    totalMeasurments++;
+}
+
+// TODO:: change 1s static value to configurable one
+// remove ped that is not observed anymore
+void VruDetectService::clearObserved()
+{
+    omnetpp::simtime_t updateInterval = omnetpp::SimTime(1,omnetpp::SIMTIME_S);
+    auto it = std::remove_if(observedPed.begin(), observedPed.end(), [&updateInterval](const Pedestrian& item)
+    { return (simTime() - item.updated > updateInterval); });
+    observedPed.erase(it, observedPed.end());
+
+    it = std::remove_if(receivedPed.begin(), receivedPed.end(), [&updateInterval](const Pedestrian& item)
+    { return (simTime() - item.updated > updateInterval); });
+    receivedPed.erase(it, receivedPed.end());
+
+    std::cout<< "observed : ";
+    for (auto it = observedPed.begin(); it != observedPed.end(); it++)
+        std::cout << (*it).pedId << " ";
+    std::cout<<std::endl;
+    std::cout<<"received : ";
+    for (auto it = receivedPed.begin(); it != receivedPed.end(); it++)
+        std::cout << (*it).pedId << " ";
+    std::cout<<std::endl;
 }
 
 void VruDetectService::finish()
