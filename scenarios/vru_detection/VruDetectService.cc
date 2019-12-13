@@ -22,6 +22,7 @@ void VruDetectService::initialize()
     ItsG5BaseService::initialize();
     //read parameters from config file
     vruSendInterval = par("vruSendInterval").doubleValue();
+    keepInterval = par("keepInterval").doubleValue();
     lastSendTime = simTime();
     //subscribe(scSignalCamReceived);
     mLocalEnvironmentModel = getFacilities().get_mutable_ptr<LocalEnvironmentModel>();
@@ -40,8 +41,8 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
     std::cout<< "Vehicle "<< mEgoId
              << " receive msg from: "<< detectVruMessage->getVehId()
              << " at : " << simTime()
-             << " ped list size :  " << detectVruMessage->getPedIdsArraySize() ;
-
+             << " ped list size : " << detectVruMessage->getPedIdsArraySize();
+    double errSum =0.0;
     //GET REAL POSITION and Compare with received one
     for (int i = 0 ; i < detectVruMessage->getPedIdsArraySize() ; i++){
         const Pedestrian& ped = detectVruMessage->getPedIds(i);
@@ -51,7 +52,7 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
             auto pedIt = find_if(receivedPed.begin(), receivedPed.end(), [&pedId](const Pedestrian& obj) {return obj.pedId == pedId;});
             if (pedIt == receivedPed.end())                 // if ped not in list then add to the list
             {
-                receivedPed.push_back (ped);                // save to list new ped
+                receivedPed.push_back(ped);                // save to list new ped
             }
             else {                                              // update if ped on the list (recently observed)
                 if ((*pedIt).updated < ped.updated){            // and we receive more recent information for this ped
@@ -60,15 +61,20 @@ void VruDetectService::indicate(const btp::DataIndication& ind, omnetpp::cPacket
                     (*pedIt).y = ped.y;                         // position y
                 }
             }
-
-            // get position error TODO:: check if  ped or (*pedIt)
             double rPosx = ped_api.getPosition(pedId).x ; // actual position of ped
             double rPosy = ped_api.getPosition(pedId).y ;
+            // get position error TODO:: check if  ped or (*pedIt)
             double error = sqrt ( pow((rPosx-ped.x),2) + pow ((rPosy-ped.y),2)); // error distance
             std::cout<< " || " << ped.pedId << " Error : " << error;
+            if (error > 1.0) errorL++;
+            else if (error > 0.5 && error <=1.0) errorM++;
+            else errorX ++;
+            errSum+=error;
         }
     }
     std::cout << "]" <<  std::endl;
+    msgCount++;
+    errorMid+= (errSum/detectVruMessage->getPedIdsArraySize());
     delete(detectVruMessage);
 }
 
@@ -80,8 +86,8 @@ void VruDetectService::trigger()
     auto& allObjects = mLocalEnvironmentModel->allObjects();
 
     detectPedestrians(filterBySensorCategory(allObjects,"Radar"));  // detect ped in camera field of view
+    makeCalc();                                                     // erase repeated ped from received list
     clearObserved();                                                // remove ped out of camera range
-    makeCalc();                                                     // update observed  values
     sendPedestrianInfo();                                           // send message to other vehicles
 }
 
@@ -160,41 +166,60 @@ void VruDetectService::sendPedestrianInfo(Pedestrian ped)
 // make calculation of observed values
 void VruDetectService::makeCalc()
 {
+    // not include repited ped from received list
+    //int rSize = receivedPed.size();
+    for (auto it = observedPed.begin(); it != observedPed.end(); it++)
+        for (auto itR = receivedPed.begin(); itR != receivedPed.end(); itR++){
+            if ( (*it).pedId == (*itR).pedId )  receivedPed.erase(itR--);
+        }
     // print instant detected vehicles (radar + message)
-    std::cout << mEgoId << " : " << observedPed.size() + receivedPed.size() << std::endl;
-
-    totalDetectPed+= (observedPed.size() + receivedPed.size()) ;
-    totalMeasurments++;
+    std::cout << mEgoId << " : " << observedPed.size() + receivedPed.size()<< std::endl;
+    pedCount += (observedPed.size() + receivedPed.size());
+    stepCount++;
 }
 
-// TODO:: change 1s static value to configurable one
 // remove ped that is not observed anymore
 void VruDetectService::clearObserved()
 {
-    omnetpp::simtime_t updateInterval = omnetpp::SimTime(1,omnetpp::SIMTIME_S);
+    int ped = 0;
+    omnetpp::simtime_t updateInterval = omnetpp::SimTime(keepInterval);
     auto it = std::remove_if(observedPed.begin(), observedPed.end(), [&updateInterval](const Pedestrian& item)
     { return (simTime() - item.updated > updateInterval); });
+    auto k = it;
+    for (; k!=observedPed.end(); k++) ped++;
     observedPed.erase(it, observedPed.end());
 
     it = std::remove_if(receivedPed.begin(), receivedPed.end(), [&updateInterval](const Pedestrian& item)
     { return (simTime() - item.updated > updateInterval); });
+
+    for (k = it; k!=receivedPed.end(); k++) ped++;
     receivedPed.erase(it, receivedPed.end());
 
-    std::cout<< "observed : ";
+    // update number of detected ped
+    totalDetectPed+=ped;
+
+    std::cout<< mEgoId << " observed : ";
     for (auto it = observedPed.begin(); it != observedPed.end(); it++)
         std::cout << (*it).pedId << " ";
     std::cout<<std::endl;
-    std::cout<<"received : ";
+    std::cout<<mEgoId<<" received : ";
     for (auto it = receivedPed.begin(); it != receivedPed.end(); it++)
         std::cout << (*it).pedId << " ";
     std::cout<<std::endl;
+//    std::cout<< mEgoId << " ped : " << ped << "Total ped " << totalDetectPed << std::endl;
 }
 
 void VruDetectService::finish()
 {
     // you could record some scalars at this point
     ItsG5Service::finish();
-    std::cout << "FINISH "<< mEgoId << " : " << totalDetectPed/totalMeasurments << " tcount: "<< totalMeasurments << " totPed: " << totalDetectPed<<std::endl;
+    double midPed = (double) pedCount/stepCount;
+    double midError = errorMid/msgCount;
+    std::cout << "FINISH "<< mEgoId << " totPed: " << totalDetectPed
+              << " X:"<< errorX << " M:"<< errorM << " L:"<< errorL
+              << " minPed: " << midPed
+              << " midError: " << midError
+              << std::endl;
 }
 
 //if pedestrian still in simulation

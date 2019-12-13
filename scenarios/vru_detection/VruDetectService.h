@@ -27,9 +27,17 @@ protected:
 private:
 
     unsigned long totalDetectPed = 0;
-    double_t totalMeasurments = 0;
+    unsigned long errorX= 0;            // [0 : 0.5]    position error
+    unsigned long errorM= 0;            // (0.5 ; 1.0]
+    unsigned long errorL= 0;            // ( > 1.0)
 
-    double vruSendInterval;
+    unsigned long msgCount = 0;
+    double errorMid = 0.0;
+    unsigned long stepCount= 0;
+    unsigned long pedCount = 0;
+
+    double vruSendInterval; //the intervall between 2 messages
+    double keepInterval;    //time to keep ped data on lists
 
     omnetpp::simtime_t lastSendTime=0;        // time when send last VRU msg
     std::vector<Pedestrian> observedPed; // list of instant observed pedestrians by camera/radar
