@@ -27,14 +27,17 @@ protected:
 private:
 
     unsigned long totalDetectPed = 0;
-    unsigned long errorX= 0;            // [0 : 0.5]    position error
-    unsigned long errorM= 0;            // (0.5 ; 1.0]
-    unsigned long errorL= 0;            // ( > 1.0)
+    double errorX= 0.0;            // [0 : 0.5]    position error
+    double errorM= 0.0;            // (0.5 ; 1.0]
+    double errorL= 0.0;            // ( > 1.0)
+    double errorGlobal = 0.0;       // total error value
 
-    unsigned long msgCount = 0;
-    double errorMid = 0.0;
+    double pedByMsgCount = 0.0;
+    double effectivness = 0.0;      // is all ped in interest zone is detected
     unsigned long stepCount= 0;
-    unsigned long pedCount = 0;
+    unsigned long stepCount1= 0;
+    unsigned long stepCount2= 1;
+    unsigned long pedCount = 0;         // num ped detected ped step
 
     double vruSendInterval; //the intervall between 2 messages
     double keepInterval;    //time to keep ped data on lists
@@ -53,13 +56,17 @@ private:
 
 
     /* detect pedestrians from all enviroupment objects */
+    void removeUntracked(omnetpp::simtime_t time);
     void detectPedestrians (const artery::TrackedObjectsFilterRange& objs);
     void sendPedestrianInfo();                                          // send observed ped list on determined time
     void sendPedestrianInfo(std::vector<Pedestrian> observedPed);       // send list of instant observed ped
     void sendPedestrianInfo(Pedestrian ped);                            // send one ped
-    void makeCalc();                                                    // make calculations of tracked values
-    void clearObserved();                                               // remove pedestrians out of camera range
-
+    void removeDuplicate();                                          // make calculations of tracked values
+    void clearReceived();                                               // remove pedestrians out of camera range
+    void checkEffect();
+    void checkError();
+    std::vector<std::string> checkInZone(std::vector<Pedestrian> ped);  // get ped that on important zone
+    std::vector<std::string> checkInZone(std::vector<std::string> ped);
 
 };
 

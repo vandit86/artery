@@ -34,7 +34,7 @@
 
 <net version="1.1" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
 
-    <location netOffset="0.00,0.00" convBoundary="0.00,-100.00,200.00,100.00" origBoundary="-10000000000.000000,-10000000000.000000,10000000000.000000,10000000000.000000" projParameter="+proj=tmerc +ellps=WGS84 +datum=WGS84 +lat_0=49 +lon_0=11 +units=m +no_defs"/>
+    <location netOffset="0.00,0.00" convBoundary="0.00, 0.00,200.00,00.00" origBoundary="-10000000000.000000,-10000000000.000000,10000000000.000000,10000000000.000000" projParameter="+proj=tmerc +ellps=WGS84 +datum=WGS84 +lat_0=49 +lon_0=11 +units=m +no_defs"/>
 
     <edge id=":gneJ55_w0" function="walkingarea">
         <lane id=":gneJ55_w0_0" index="0" allow="pedestrian" speed="1.00" length="14.80" width="2.00" shape="0.00,-6.40 0.00,-8.40 0.00,8.40 0.00,6.40"/>

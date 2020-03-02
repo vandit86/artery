@@ -43,6 +43,33 @@ ________________________________________
 
 --> Vehicle/Pedestrian Type 
 
+--> camera mantain intracking some time after ped out of range 
+
+--> ajust vru-message sending frequency if number of vehicles around is changing (from resumlt see that effectivnes) 
+
+
+0.2 , 1 
+
+FINISH flow0.3 totPed: 5 pedByMsgCount: 10 X:0.85 M:0.1 L:0.025 midPed: 0.402439 errMid: 0.183418 effect: 0.176075
+FINISH flow0.2 totPed: 10 pedByMsgCount: 10 X:0.59375 M:0.265625 L:0.125 midPed: 0.582418 errMid: 0.42304 effect: 0.200904
+
+0.5 , 1
+
+FINISH flow0.3 totPed: 5 pedByMsgCount: 7 X:0.775 M:0.175 L:0.025 midPed: 0.402439 errMid: 0.236761 effect: 0.176075
+FINISH flow0.2 totPed: 10 pedByMsgCount: 7 X:0.551724 M:0.293103 L:0.137931 midPed: 0.549451 errMid: 0.443398 effect: 0.19509
+
+07 , 1
+
+FINISH flow0.3 totPed: 5 pedByMsgCount: 5 X:0.625 M:0.3 L:0.05 midPed: 0.402439 errMid: 0.342383 effect: 0.176075
+FINISH flow0.2 totPed: 10 pedByMsgCount: 6 X:0.5 M:0.326923 L:0.153846 midPed: 0.516484 errMid: 0.494559 effect: 0.175711
+
+0.9 , 1
+
+FINISH flow0.3 totPed: 5 pedByMsgCount: 5 X:0.625 M:0.3 L:0.05 midPed: 0.402439 errMid: 0.342383 effect: 0.176075
+FINISH flow0.2 totPed: 10 pedByMsgCount: 6 X:0.5 M:0.326923 L:0.153846 midPed: 0.516484 errMid: 0.494559 effect: 0.175711
+
+
+
 =========================================================================================
 
 --> SIMULATORS 
