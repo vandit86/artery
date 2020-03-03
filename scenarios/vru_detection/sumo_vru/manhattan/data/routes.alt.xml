@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on Wed Dec 11 15:10:03 2019 by Eclipse SUMO duarouter Version 1.2.0
+<!-- generated on Tue Mar  3 11:55:53 2020 by Eclipse SUMO duarouter Version 1.2.0
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/duarouterConfiguration.xsd">
 
     <input>
@@ -27,55 +27,4 @@
 </configuration>
 -->
 
-<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
-    <vehicle id="v.0" depart="0.00" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="225.54" probability="1.00000000" edges="E5F5 F5F4 F4F3 F3F2 F2E2 E2D2 D2C2 C2B2 B2A2 A2A1 A1B1 B1B2 B2B3 B3B4 B4B5 B5C5 C5D5 D5E5 E5F5"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.1" depart="0.10" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="186.00" probability="1.00000000" edges="F5F4 F4F3 F3F2 F2F1 F1F0 F0E0 E0D0 D0D1 D1D2 D2D3 D3D4 D4C4 C4B4 B4A4 A4A5 A5B5"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.2" depart="0.20" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="161.69" probability="1.00000000" edges="D0D1 D1D2 D2D3 D3D4 D4D5 D5E5 E5F5 F5F4 F4F3 F3F2 F2E2 E2D2 D2C2 C2B2"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.3" depart="0.30" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="167.07" probability="1.00000000" edges="A1A0 A0B0 B0C0 C0D0 D0E0 E0F0 F0F1 F1F2 F2E2 E2D2 D2C2 C2C3 C3B3 B3A3"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.4" depart="0.40" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="218.97" probability="1.00000000" edges="A5A4 A4A3 A3A2 A2A1 A1A0 A0B0 B0C0 C0D0 D0E0 E0F0 F0F1 F1F2 F2F3 F3E3 E3D3 D3C3 C3B3 B3A3 A3A4"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.5" depart="0.50" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="224.53" probability="1.00000000" edges="A4A5 A5B5 B5C5 C5D5 D5E5 E5F5 F5F4 F4F3 F3F2 F2F1 F1F0 F0E0 E0D0 D0C0 C0C1 C1C2 C2C3 C3C4 C4C5 C5B5"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.6" depart="0.60" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="167.30" probability="1.00000000" edges="B5C5 C5C4 C4C3 C3C2 C2C1 C1C0 C0D0 D0D1 D1D2 D2D3 D3D4 D4E4 E4E5 E5D5"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.7" depart="0.70" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="154.15" probability="1.00000000" edges="F1F0 F0E0 E0D0 D0C0 C0B0 B0A0 A0A1 A1A2 A2A3 A3A4 A4A5 A5B5 B5C5 C5D5"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.8" depart="0.80" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="184.35" probability="1.00000000" edges="D1D0 D0C0 C0B0 B0A0 A0A1 A1A2 A2A3 A3A4 A4A5 A5B5 B5C5 C5D5 D5E5 E5E4 E4E3 E3F3"/>
-        </routeDistribution>
-    </vehicle>
-    <vehicle id="v.9" depart="0.90" departLane="best" departPos="random" departSpeed="max">
-        <routeDistribution last="0">
-            <route cost="164.15" probability="1.00000000" edges="A5B5 B5C5 C5D5 D5E5 E5E4 E4F4 F4F5 F5E5 E5D5 D5C5 C5B5 B5B4 B4B3 B3B2"/>
-        </routeDistribution>
-    </vehicle>
-</routes>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd"/>

@@ -8,7 +8,7 @@
     <grid_network>
         <grid value="true"/>
         <grid.number value="6"/>
-        <grid.length value="150"/>
+        <grid.length value="100"/>
     </grid_network>
 
     <junctions>

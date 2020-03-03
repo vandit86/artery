@@ -66,7 +66,7 @@ void VruDetectService::trigger()
     Enter_Method("trigger");
     auto& allObjects = mLocalEnvironmentModel->allObjects();        // get all objects from env
     detectPedestrians(filterBySensorCategory(allObjects,"Radar"));  // detect ped in camera field of view
-    removeDuplicate();                                           // erase repeated ped from received list
+    removeDuplicate();                                              // erase repeated ped from received list
     clearReceived();                                                // remove ped out of msg range
     checkError();
     checkEffect();                                                  // calculate effectivness
@@ -144,7 +144,7 @@ void VruDetectService::sendPedestrianInfo(std::vector<Pedestrian> pedIds)
     int i = 0;
     for (i = 0; i < pedIds.size(); i++)
         packet->setPedIds(i,pedIds[i]);
-    packet->setByteLength(15*i);  // size proportional to number of pedestrians
+    packet->setByteLength(20*i);  // size proportional to number of pedestrians
     request(req, packet);
 }
 
@@ -233,6 +233,8 @@ void VruDetectService::checkError()
             else errorX ++;
             errorGlobal+=error;
             stepCount2++;
+
+            if (largerError<error) largerError = error; // save the larger error value
         }
     }
 }
@@ -278,14 +280,19 @@ void VruDetectService::finish()
     // you could record some scalars at this point
     ItsG5Service::finish();
 
+    // add to tottal detected pedestrians those that in buffer
+    totalDetectPed+=observedPed.size();
+    totalDetectPed+=receivedPed.size();
+
     std::cout << "FINISH "<< mEgoId
               << " totPed: " << totalDetectPed
               << " pedByMsgCount: " << pedByMsgCount
               << " X:"<< errorX/stepCount2
               << " M:"<< errorM/stepCount2
               << " L:"<< errorL/stepCount2
+              << " midErr: " << errorGlobal/stepCount2
+              << " largerErr: " << largerError
               << " midPed: " << ((double)pedCount)/stepCount
-              << " errMid: " << errorGlobal/stepCount2
               << " effect: " << effectivness/stepCount1
               << std::endl;
 }

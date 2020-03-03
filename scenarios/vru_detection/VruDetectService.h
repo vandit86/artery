@@ -31,8 +31,9 @@ private:
     double errorM= 0.0;            // (0.5 ; 1.0]
     double errorL= 0.0;            // ( > 1.0)
     double errorGlobal = 0.0;       // total error value
+    double largerError = 0.0;       // the larger detected error
 
-    double pedByMsgCount = 0.0;
+    double pedByMsgCount = 0.0;     // num of detected pedesrians by VRU_Detect_Servise
     double effectivness = 0.0;      // is all ped in interest zone is detected
     unsigned long stepCount= 0;
     unsigned long stepCount1= 0;
