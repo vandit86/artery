@@ -1,0 +1,110 @@
+[ 13%] Built target traci
+[ 13%] Building Vanetza (external dependency)
+-- Boost version: 1.65.1
+-- Found the following Boost libraries:
+--   date_time
+-- Cohda SDK not found (missing: COHDA_ROOT) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vad/artery/extern/vanetza/build
+[  0%] Built target access
+[ 63%] Built target asn1
+[ 66%] Built target common
+[ 70%] Built target net
+[ 82%] Built target security
+[ 87%] Built target dcc
+[ 98%] Built target geonet
+[ 99%] Built target btp
+[100%] Built target facilities
+[100%] Built target gnss
+[100%] Built target proxy_fake_feed
+[ 13%] Built target build_vanetza
+[ 14%] Building INET (external dependency)
+*** COMPILING with:
+g++ -c -std=c++11 -O3 -DNDEBUG=1 -MMD -MP -MF .d  -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_NETBUILDER -Wno-overloaded-virtual -include inet/common/precompiled_release.h  -DINET_EXPORT -I. -I/home/vad/omnetpp-5.5.1/include
+*** LINKING with:
+g++ -shared -fPIC -o ../out/gcc-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++  -Wl,-rpath,/home/vad/omnetpp-5.5.1/lib -Wl,-rpath,/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/vad/omnetpp-5.5.1/lib
+Building...
+[ 14%] Built target build_inet
+[ 15%] Building Veins (external dependency)
+[ 15%] Built target build_veins
+[ 61%] Built target core
+[ 71%] Built target envmod
+[ 75%] Built target vru_detection
+[ 89%] Built target storyboard
+[ 94%] Built target testbed
+[100%] Built target police
+OMNeT++ Discrete Event Simulation  (C) 1992-2019 Andras Varga, OpenSim Ltd.
+Version: 5.5.1, build: 190613-08ba16f914, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Qtenv...
+
+Loading NED files from /home/vad/artery/src/artery:  78
+Loading NED files from /home/vad/artery/src/traci:  16
+Loading NED files from /home/vad/artery/extern/veins/examples/veins:  1
+Loading NED files from /home/vad/artery/extern/veins/src/veins:  38
+Loading NED files from /home/vad/artery/extern/inet/src:  666
+Loading NED files from /home/vad/artery/extern/inet/examples:  174
+Loading NED files from /home/vad/artery/extern/inet/tutorials:  19
+Loading NED files from /home/vad/artery/extern/inet/showcases:  33
+Loading NED files from /home/vad/artery/scenarios/vru_detection:  1
+
+Loading images from './bitmaps': *: 0 
+Loading images from './images': *: 0 
+Loading images from '/home/vad/omnetpp-5.5.1/images': *: 0  abstract/*: 90  background/*: 4  block/*: 320  device/*: 195  logo/*: 1  maps/*: 9  misc/*: 70  msg/*: 55  old/*: 111  status/*: 28 
+
+Loading configuration... done.
+FINISH v0.0 totPed: 441 pedByMsgCount: 1878 X:0.526191 M:0.0212766 L:0.452408 midErr: 0.599386 largerErr: 1.87257 midPed: 14.983 effect: 0.0795597
+FINISH v1.0 totPed: 561 pedByMsgCount: 2671 X:0.549036 M:0.00833107 L:0.442543 midErr: 0.574837 largerErr: 2.24584 midPed: 19.8964 effect: 0.308333
+FINISH v10.0 totPed: 511 pedByMsgCount: 2224 X:0.54215 M:0.0114907 L:0.446255 midErr: 0.577915 largerErr: 2.12104 midPed: 17.2445 effect: 0.196735
+FINISH v11.0 totPed: 513 pedByMsgCount: 2376 X:0.549346 M:0.00847977 L:0.442072 midErr: 0.57537 largerErr: 2.24584 midPed: 18.017 effect: 0.294792
+FINISH v12.0 totPed: 496 pedByMsgCount: 2243 X:0.542382 M:0.0131735 L:0.444336 midErr: 0.582226 largerErr: 2.24584 midPed: 17.2784 effect: 0.141667
+FINISH v13.0 totPed: 493 pedByMsgCount: 2232 X:0.525191 M:0.01042 L:0.464282 midErr: 0.60215 largerErr: 2.24584 midPed: 17.3599 effect: 0.352973
+FINISH v14.0 totPed: 492 pedByMsgCount: 2266 X:0.511719 M:0.00855152 L:0.479624 midErr: 0.6216 largerErr: 2.24584 midPed: 17.6027 effect: 0.313816
+FINISH v15.0 totPed: 392 pedByMsgCount: 1625 X:0.487176 M:0.0152768 L:0.497407 midErr: 0.650092 largerErr: 2.12104 midPed: 13.2241 effect: 0.120918
+FINISH v16.0 totPed: 394 pedByMsgCount: 1633 X:0.509242 M:0.015475 L:0.47514 midErr: 0.622733 largerErr: 1.66187 midPed: 13.1766 effect: 0.0923611
+FINISH v17.0 totPed: 383 pedByMsgCount: 1664 X:0.516634 M:0.0128916 L:0.470335 midErr: 0.611893 largerErr: 2.24584 midPed: 13.1053 effect: 0.118939
+FINISH v18.0 totPed: 514 pedByMsgCount: 2247 X:0.538723 M:0.0165808 L:0.444593 midErr: 0.58384 largerErr: 1.94018 midPed: 17.4924 effect: 0.130294
+FINISH v19.0 totPed: 437 pedByMsgCount: 1828 X:0.520284 M:0.0206643 L:0.458925 midErr: 0.606729 largerErr: 2.24584 midPed: 14.7487 effect: 0.0931973
+FINISH v2.0 totPed: 420 pedByMsgCount: 1753 X:0.510249 M:0.0156678 L:0.473952 midErr: 0.617156 largerErr: 2.12104 midPed: 14.0136 effect: 0.27407
+FINISH v20.0 totPed: 461 pedByMsgCount: 1998 X:0.544932 M:0.0163181 L:0.438635 midErr: 0.572804 largerErr: 2.12104 midPed: 15.7521 effect: 0.182187
+FINISH v21.0 totPed: 450 pedByMsgCount: 1978 X:0.511302 M:0.0177773 L:0.470803 midErr: 0.614222 largerErr: 2.24584 midPed: 15.3463 effect: 0.159722
+FINISH v22.0 totPed: 566 pedByMsgCount: 2497 X:0.530321 M:0.0167676 L:0.452818 midErr: 0.591819 largerErr: 2.24584 midPed: 19.253 effect: 0.0820312
+FINISH v23.0 totPed: 511 pedByMsgCount: 2326 X:0.524897 M:0.0111111 L:0.463889 midErr: 0.603898 largerErr: 2.24584 midPed: 17.9372 effect: 0.285525
+FINISH v24.0 totPed: 441 pedByMsgCount: 1921 X:0.555259 M:0.012603 L:0.432016 midErr: 0.559303 largerErr: 2.12104 midPed: 15.0441 effect: 0.227517
+FINISH v25.0 totPed: 599 pedByMsgCount: 2850 X:0.504314 M:0.0150158 L:0.480587 midErr: 0.62898 largerErr: 2.24584 midPed: 21.6027 effect: 0.205263
+FINISH v26.0 totPed: 665 pedByMsgCount: 3113 X:0.545517 M:0.0120408 L:0.442365 midErr: 0.577197 largerErr: 2.24584 midPed: 23.3514 effect: 0.311167
+FINISH v27.0 totPed: 506 pedByMsgCount: 2329 X:0.528033 M:0.00948012 L:0.462385 midErr: 0.599317 largerErr: 2.24584 midPed: 18.0119 effect: 0.116123
+FINISH v28.0 totPed: 662 pedByMsgCount: 3056 X:0.541363 M:0.0113865 L:0.447173 midErr: 0.583234 largerErr: 2.24584 midPed: 23.1579 effect: 0.277778
+FINISH v29.0 totPed: 382 pedByMsgCount: 1534 X:0.523051 M:0.0115256 L:0.465271 midErr: 0.608602 largerErr: 2.24584 midPed: 12.6774 effect: 0.124762
+FINISH v3.0 totPed: 496 pedByMsgCount: 2163 X:0.534264 M:0.0192266 L:0.446402 midErr: 0.586752 largerErr: 1.66187 midPed: 16.8557 effect: 0.247011
+FINISH v30.0 totPed: 679 pedByMsgCount: 3169 X:0.533195 M:0.0132927 L:0.453438 midErr: 0.590459 largerErr: 2.24584 midPed: 24.0815 effect: 0.0981818
+FINISH v31.0 totPed: 334 pedByMsgCount: 1341 X:0.515836 M:0.0150659 L:0.468927 midErr: 0.610493 largerErr: 2.24584 midPed: 11.1154 effect: 0.17303
+FINISH v32.0 totPed: 364 pedByMsgCount: 1483 X:0.518196 M:0.0169725 L:0.464679 midErr: 0.608707 largerErr: 2.24584 midPed: 12.0662 effect: 0.110694
+FINISH v33.0 totPed: 675 pedByMsgCount: 3085 X:0.538263 M:0.0159744 L:0.445687 midErr: 0.583105 largerErr: 2.24584 midPed: 23.545 effect: 0.1
+FINISH v34.0 totPed: 331 pedByMsgCount: 1324 X:0.49758 M:0.0164189 L:0.485828 midErr: 0.633035 largerErr: 2.24584 midPed: 10.9015 effect: 0.21124
+FINISH v35.0 totPed: 538 pedByMsgCount: 2382 X:0.519782 M:0.0146787 L:0.465442 midErr: 0.604931 largerErr: 1.66187 midPed: 18.5042 effect: 0.0884615
+FINISH v36.0 totPed: 486 pedByMsgCount: 2226 X:0.509618 M:0.0134977 L:0.476778 midErr: 0.618586 largerErr: 2.24584 midPed: 17.034 effect: 0.123188
+FINISH v37.0 totPed: 524 pedByMsgCount: 2482 X:0.54441 M:0.00905727 L:0.446436 midErr: 0.579348 largerErr: 2.24584 midPed: 18.7776 effect: 0.30625
+FINISH v38.0 totPed: 395 pedByMsgCount: 1694 X:0.50563 M:0.0205094 L:0.473727 midErr: 0.625037 largerErr: 2.12104 midPed: 13.5365 effect: 0.0939935
+FINISH v39.0 totPed: 319 pedByMsgCount: 1278 X:0.503947 M:0.0123003 L:0.483569 midErr: 0.628659 largerErr: 2.24584 midPed: 10.4397 effect: 0.136589
+FINISH v4.0 totPed: 503 pedByMsgCount: 2199 X:0.513133 M:0.0183643 L:0.468396 midErr: 0.616039 largerErr: 1.66187 midPed: 17.1969 effect: 0.0971125
+FINISH v40.0 totPed: 529 pedByMsgCount: 2381 X:0.546851 M:0.0124122 L:0.440635 midErr: 0.574707 largerErr: 2.24584 midPed: 18.4974 effect: 0.179327
+FINISH v41.0 totPed: 393 pedByMsgCount: 1679 X:0.506239 M:0.0107949 L:0.482826 midErr: 0.626242 largerErr: 2.24584 midPed: 13.1647 effect: 0.156487
+FINISH v42.0 totPed: 587 pedByMsgCount: 2653 X:0.502472 M:0.0158703 L:0.481571 midErr: 0.628655 largerErr: 2.24584 midPed: 20.6825 effect: 0.196667
+FINISH v43.0 totPed: 525 pedByMsgCount: 2429 X:0.52221 M:0.0138875 L:0.463804 midErr: 0.605768 largerErr: 2.24584 midPed: 18.4873 effect: 0.197454
+FINISH v44.0 totPed: 634 pedByMsgCount: 2970 X:0.546643 M:0.0123526 L:0.440924 midErr: 0.576767 largerErr: 2.24584 midPed: 22.3124 effect: 0.215217
+FINISH v45.0 totPed: 423 pedByMsgCount: 1799 X:0.515708 M:0.0182288 L:0.465934 midErr: 0.610464 largerErr: 1.66187 midPed: 14.3073 effect: 0.123904
+FINISH v46.0 totPed: 488 pedByMsgCount: 2162 X:0.524703 M:0.018326 L:0.456864 midErr: 0.602195 largerErr: 2.24584 midPed: 16.9593 effect: 0.193281
+FINISH v47.0 totPed: 613 pedByMsgCount: 2785 X:0.541453 M:0.0125997 L:0.445863 midErr: 0.581991 largerErr: 2.24584 midPed: 21.4295 effect: 0.336786
+FINISH v48.0 totPed: 557 pedByMsgCount: 2535 X:0.497853 M:0.0133495 L:0.488704 midErr: 0.636669 largerErr: 2.12104 midPed: 19.545 effect: 0.214729
+FINISH v49.0 totPed: 671 pedByMsgCount: 3161 X:0.551593 M:0.0132346 L:0.435098 midErr: 0.568881 largerErr: 2.24584 midPed: 23.8913 effect: 0.394231
+FINISH v5.0 totPed: 533 pedByMsgCount: 2352 X:0.524761 M:0.0155131 L:0.459626 midErr: 0.600161 largerErr: 2.24584 midPed: 18.1222 effect: 0.185
+FINISH v6.0 totPed: 563 pedByMsgCount: 2550 X:0.501279 M:0.0168981 L:0.481732 midErr: 0.629268 largerErr: 2.12104 midPed: 19.6299 effect: 0.279226
+FINISH v7.0 totPed: 560 pedByMsgCount: 2583 X:0.519027 M:0.00997073 L:0.470911 midErr: 0.61317 largerErr: 2.24584 midPed: 19.8964 effect: 0.184127
+FINISH v8.0 totPed: 529 pedByMsgCount: 2367 X:0.53285 M:0.0119095 L:0.455141 midErr: 0.591911 largerErr: 2.24584 midPed: 18.3311 effect: 0
+FINISH v9.0 totPed: 631 pedByMsgCount: 2938 X:0.530017 M:0.0149482 L:0.454955 midErr: 0.595163 largerErr: 2.24584 midPed: 22.3939 effect: 0.224691
+
+End.
+[100%] Built target run_vru_detection

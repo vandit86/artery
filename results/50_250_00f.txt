@@ -1,0 +1,110 @@
+[ 13%] Built target traci
+[ 13%] Building Vanetza (external dependency)
+-- Boost version: 1.65.1
+-- Found the following Boost libraries:
+--   date_time
+-- Cohda SDK not found (missing: COHDA_ROOT) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vad/artery/extern/vanetza/build
+[  0%] Built target access
+[ 63%] Built target asn1
+[ 66%] Built target common
+[ 70%] Built target net
+[ 82%] Built target security
+[ 87%] Built target dcc
+[ 98%] Built target geonet
+[ 99%] Built target btp
+[100%] Built target facilities
+[100%] Built target gnss
+[100%] Built target proxy_fake_feed
+[ 13%] Built target build_vanetza
+[ 14%] Building INET (external dependency)
+*** COMPILING with:
+g++ -c -std=c++11 -O3 -DNDEBUG=1 -MMD -MP -MF .d  -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_NETBUILDER -Wno-overloaded-virtual -include inet/common/precompiled_release.h  -DINET_EXPORT -I. -I/home/vad/omnetpp-5.5.1/include
+*** LINKING with:
+g++ -shared -fPIC -o ../out/gcc-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++  -Wl,-rpath,/home/vad/omnetpp-5.5.1/lib -Wl,-rpath,/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/vad/omnetpp-5.5.1/lib
+Building...
+[ 14%] Built target build_inet
+[ 15%] Building Veins (external dependency)
+[ 15%] Built target build_veins
+[ 61%] Built target core
+[ 71%] Built target envmod
+[ 75%] Built target vru_detection
+[ 89%] Built target storyboard
+[ 94%] Built target testbed
+[100%] Built target police
+OMNeT++ Discrete Event Simulation  (C) 1992-2019 Andras Varga, OpenSim Ltd.
+Version: 5.5.1, build: 190613-08ba16f914, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Qtenv...
+
+Loading NED files from /home/vad/artery/src/artery:  78
+Loading NED files from /home/vad/artery/src/traci:  16
+Loading NED files from /home/vad/artery/extern/veins/examples/veins:  1
+Loading NED files from /home/vad/artery/extern/veins/src/veins:  38
+Loading NED files from /home/vad/artery/extern/inet/src:  666
+Loading NED files from /home/vad/artery/extern/inet/examples:  174
+Loading NED files from /home/vad/artery/extern/inet/tutorials:  19
+Loading NED files from /home/vad/artery/extern/inet/showcases:  33
+Loading NED files from /home/vad/artery/scenarios/vru_detection:  1
+
+Loading images from './bitmaps': *: 0 
+Loading images from './images': *: 0 
+Loading images from '/home/vad/omnetpp-5.5.1/images': *: 0  abstract/*: 90  background/*: 4  block/*: 320  device/*: 195  logo/*: 1  maps/*: 9  misc/*: 70  msg/*: 55  old/*: 111  status/*: 28 
+
+Loading configuration... done.
+FINISH v0.0 totPed: 36 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.662139 effect: 0.0619497
+FINISH v1.0 totPed: 10 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.237691 effect: 0
+FINISH v10.0 totPed: 10 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.169779 effect: 0.0476836
+FINISH v11.0 totPed: 26 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.594228 effect: 0.03125
+FINISH v12.0 totPed: 43 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.814941 effect: 0.0627451
+FINISH v13.0 totPed: 37 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.814941 effect: 0.136174
+FINISH v14.0 totPed: 33 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.780985 effect: 0.0328947
+FINISH v15.0 totPed: 26 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.509338 effect: 0.0602041
+FINISH v16.0 totPed: 42 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.764007 effect: 0.0795139
+FINISH v17.0 totPed: 9 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.237691 effect: 0.0757576
+FINISH v18.0 totPed: 10 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.169779 effect: 0.0677945
+FINISH v19.0 totPed: 37 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.696095 effect: 0.0748299
+FINISH v2.0 totPed: 20 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.356537 effect: 0.0802326
+FINISH v20.0 totPed: 13 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.237691 effect: 0.0390625
+FINISH v21.0 totPed: 13 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.220713 effect: 0.0714286
+FINISH v22.0 totPed: 5 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.101868 effect: 0.03125
+FINISH v23.0 totPed: 35 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.662139 effect: 0.0608225
+FINISH v24.0 totPed: 19 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.339559 effect: 0.108163
+FINISH v25.0 totPed: 7 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.169779 effect: 0.157895
+FINISH v26.0 totPed: 7 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.118846 effect: 0.0666667
+FINISH v27.0 totPed: 26 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.560272 effect: 0.0688406
+FINISH v28.0 totPed: 7 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.152801 effect: 0.0333333
+FINISH v29.0 totPed: 52 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.933786 effect: 0.107035
+FINISH v3.0 totPed: 13 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.254669 effect: 0.0625
+FINISH v30.0 totPed: 5 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.0848896 effect: 0
+FINISH v31.0 totPed: 33 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.696095 effect: 0.0719697
+FINISH v32.0 totPed: 21 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.390492 effect: 0.0475694
+FINISH v33.0 totPed: 7 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.118846 effect: 0.0217391
+FINISH v34.0 totPed: 33 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.594228 effect: 0.121705
+FINISH v35.0 totPed: 8 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.169779 effect: 0.0173077
+FINISH v36.0 totPed: 17 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.305603 effect: 0.0387681
+FINISH v37.0 totPed: 20 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.509338 effect: 0.0416667
+FINISH v38.0 totPed: 13 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.237691 effect: 0.0663636
+FINISH v39.0 totPed: 41 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.747029 effect: 0.0803889
+FINISH v4.0 totPed: 28 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.543294 effect: 0.0511905
+FINISH v40.0 totPed: 36 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.70639 effect: 0.0881445
+FINISH v41.0 totPed: 28 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.475382 effect: 0.0710053
+FINISH v42.0 totPed: 8 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.135823 effect: 0.0466667
+FINISH v43.0 totPed: 21 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.424448 effect: 0.0611111
+FINISH v44.0 totPed: 5 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.101868 effect: 0.0434783
+FINISH v45.0 totPed: 30 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.543294 effect: 0.0772013
+FINISH v46.0 totPed: 13 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.322581 effect: 0.0625
+FINISH v47.0 totPed: 11 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.203735 effect: 0.0357143
+FINISH v48.0 totPed: 26 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.49236 effect: 0.135659
+FINISH v49.0 totPed: 3 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.0679117 effect: 0.0769231
+FINISH v5.0 totPed: 10 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.186757 effect: 0.114286
+FINISH v6.0 totPed: 8 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.135823 effect: 0.0530086
+FINISH v7.0 totPed: 22 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.458404 effect: 0.0353175
+FINISH v8.0 totPed: 21 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.373514 effect: 0
+FINISH v9.0 totPed: 6 pedByMsgCount: 0 X:0 M:0 L:0 midErr: 0 largerErr: 0 midPed: 0.237691 effect: 0.0555556
+
+End.
+[100%] Built target run_vru_detection

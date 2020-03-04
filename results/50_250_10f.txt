@@ -1,0 +1,110 @@
+[ 13%] Built target traci
+[ 13%] Building Vanetza (external dependency)
+-- Boost version: 1.65.1
+-- Found the following Boost libraries:
+--   date_time
+-- Cohda SDK not found (missing: COHDA_ROOT) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vad/artery/extern/vanetza/build
+[  0%] Built target access
+[ 63%] Built target asn1
+[ 66%] Built target common
+[ 70%] Built target net
+[ 82%] Built target security
+[ 87%] Built target dcc
+[ 98%] Built target geonet
+[ 99%] Built target btp
+[100%] Built target facilities
+[100%] Built target gnss
+[100%] Built target proxy_fake_feed
+[ 13%] Built target build_vanetza
+[ 14%] Building INET (external dependency)
+*** COMPILING with:
+g++ -c -std=c++11 -O3 -DNDEBUG=1 -MMD -MP -MF .d  -fPIC  -fno-stack-protector -DHAVE_SWAPCONTEXT -DXMLPARSER=libxml -DPREFER_QTENV -DWITH_QTENV -DWITH_NETBUILDER -Wno-overloaded-virtual -include inet/common/precompiled_release.h  -DINET_EXPORT -I. -I/home/vad/omnetpp-5.5.1/include
+*** LINKING with:
+g++ -shared -fPIC -o ../out/gcc-release/src/libINET.so -Wl,--no-as-needed -Wl,--whole-archive  -Wl,--no-whole-archive -loppenvir -loppsim -ldl -lstdc++  -Wl,-rpath,/home/vad/omnetpp-5.5.1/lib -Wl,-rpath,/lib -Wl,-rpath,.  -Wl,--export-dynamic -L/home/vad/omnetpp-5.5.1/lib
+Building...
+[ 14%] Built target build_inet
+[ 15%] Building Veins (external dependency)
+[ 15%] Built target build_veins
+[ 61%] Built target core
+[ 71%] Built target envmod
+[ 75%] Built target vru_detection
+[ 89%] Built target storyboard
+[ 94%] Built target testbed
+[100%] Built target police
+OMNeT++ Discrete Event Simulation  (C) 1992-2019 Andras Varga, OpenSim Ltd.
+Version: 5.5.1, build: 190613-08ba16f914, edition: Academic Public License -- NOT FOR COMMERCIAL USE
+See the license for distribution terms and warranty disclaimer
+
+Setting up Qtenv...
+
+Loading NED files from /home/vad/artery/src/artery:  78
+Loading NED files from /home/vad/artery/src/traci:  16
+Loading NED files from /home/vad/artery/extern/veins/examples/veins:  1
+Loading NED files from /home/vad/artery/extern/veins/src/veins:  38
+Loading NED files from /home/vad/artery/extern/inet/src:  666
+Loading NED files from /home/vad/artery/extern/inet/examples:  174
+Loading NED files from /home/vad/artery/extern/inet/tutorials:  19
+Loading NED files from /home/vad/artery/extern/inet/showcases:  33
+Loading NED files from /home/vad/artery/scenarios/vru_detection:  1
+
+Loading images from './bitmaps': *: 0 
+Loading images from './images': *: 0 
+Loading images from '/home/vad/omnetpp-5.5.1/images': *: 0  abstract/*: 90  background/*: 4  block/*: 320  device/*: 195  logo/*: 1  maps/*: 9  misc/*: 70  msg/*: 55  old/*: 111  status/*: 28 
+
+Loading configuration... done.
+FINISH v0.0 totPed: 430 pedByMsgCount: 472 X:0.792325 M:0.010027 L:0.197455 midErr: 0.261675 largerErr: 1.87257 midPed: 10.129 effect: 0.072956
+FINISH v1.0 totPed: 555 pedByMsgCount: 683 X:0.821598 M:0.00310853 L:0.175159 midErr: 0.22659 largerErr: 2.24584 midPed: 13.7012 effect: 0.181944
+FINISH v10.0 totPed: 487 pedByMsgCount: 555 X:0.821101 M:0.00393185 L:0.174803 midErr: 0.225448 largerErr: 2.12104 midPed: 11.3141 effect: 0.133953
+FINISH v11.0 totPed: 509 pedByMsgCount: 609 X:0.822958 M:0.00318858 L:0.173702 midErr: 0.225492 largerErr: 2.24584 midPed: 12.5756 effect: 0.194271
+FINISH v12.0 totPed: 487 pedByMsgCount: 567 X:0.800422 M:0.00519649 L:0.194219 midErr: 0.253533 largerErr: 2.24584 midPed: 12 effect: 0.115392
+FINISH v13.0 totPed: 488 pedByMsgCount: 573 X:0.775728 M:0.00445363 L:0.21966 midErr: 0.28365 largerErr: 2.24584 midPed: 12.2326 effect: 0.308561
+FINISH v14.0 totPed: 494 pedByMsgCount: 581 X:0.758963 M:0.00403539 L:0.236846 midErr: 0.305754 largerErr: 2.24584 midPed: 12.4788 effect: 0.224803
+FINISH v15.0 totPed: 385 pedByMsgCount: 415 X:0.741227 M:0.0111948 L:0.247363 midErr: 0.326233 largerErr: 2.12104 midPed: 8.9966 effect: 0.0928571
+FINISH v16.0 totPed: 390 pedByMsgCount: 419 X:0.756328 M:0.00664951 L:0.236808 midErr: 0.307763 largerErr: 1.66187 midPed: 9.24958 effect: 0.0899306
+FINISH v17.0 totPed: 377 pedByMsgCount: 427 X:0.785896 M:0.00403568 L:0.209856 midErr: 0.27087 largerErr: 2.24584 midPed: 8.8472 effect: 0.10303
+FINISH v18.0 totPed: 484 pedByMsgCount: 557 X:0.81588 M:0.00767848 L:0.176278 midErr: 0.232419 largerErr: 1.94018 midPed: 11.348 effect: 0.107268
+FINISH v19.0 totPed: 421 pedByMsgCount: 459 X:0.780445 M:0.00963998 L:0.209719 midErr: 0.277336 largerErr: 2.24584 midPed: 9.96944 effect: 0.0931973
+FINISH v2.0 totPed: 406 pedByMsgCount: 438 X:0.776729 M:0.0104658 L:0.2126 midErr: 0.280463 largerErr: 2.12104 midPed: 9.26995 effect: 0.207054
+FINISH v20.0 totPed: 447 pedByMsgCount: 502 X:0.817695 M:0.00820549 L:0.173921 midErr: 0.228902 largerErr: 2.12104 midPed: 10.472 effect: 0.146823
+FINISH v21.0 totPed: 435 pedByMsgCount: 495 X:0.762653 M:0.0105975 L:0.226567 midErr: 0.297579 largerErr: 2.24584 midPed: 10.2054 effect: 0.113095
+FINISH v22.0 totPed: 546 pedByMsgCount: 630 X:0.804506 M:0.00784884 L:0.1875 midErr: 0.245199 largerErr: 2.24584 midPed: 12.6757 effect: 0.0632812
+FINISH v23.0 totPed: 505 pedByMsgCount: 599 X:0.77129 M:0.00484042 L:0.223718 midErr: 0.289995 largerErr: 2.24584 midPed: 12.6587 effect: 0.212608
+FINISH v24.0 totPed: 427 pedByMsgCount: 482 X:0.824525 M:0.00677074 L:0.168516 midErr: 0.219199 largerErr: 2.12104 midPed: 10.0374 effect: 0.207517
+FINISH v25.0 totPed: 593 pedByMsgCount: 729 X:0.754203 M:0.00687201 L:0.238802 midErr: 0.311167 largerErr: 2.24584 midPed: 14.9779 effect: 0.157895
+FINISH v26.0 totPed: 642 pedByMsgCount: 794 X:0.820935 M:0.00394569 L:0.175003 midErr: 0.22736 largerErr: 2.24584 midPed: 15.8048 effect: 0.232611
+FINISH v27.0 totPed: 495 pedByMsgCount: 590 X:0.782522 M:0.00353248 L:0.213792 midErr: 0.275557 largerErr: 2.24584 midPed: 12.3939 effect: 0.10221
+FINISH v28.0 totPed: 640 pedByMsgCount: 769 X:0.817998 M:0.00345197 L:0.178431 midErr: 0.231296 largerErr: 2.24584 midPed: 15.4669 effect: 0.203333
+FINISH v29.0 totPed: 372 pedByMsgCount: 389 X:0.786535 M:0.00413603 L:0.209099 midErr: 0.27211 largerErr: 2.24584 midPed: 8.85399 effect: 0.118398
+FINISH v3.0 totPed: 480 pedByMsgCount: 550 X:0.803352 M:0.00945901 L:0.187023 midErr: 0.246701 largerErr: 1.66187 midPed: 11.2547 effect: 0.207246
+FINISH v30.0 totPed: 660 pedByMsgCount: 803 X:0.803859 M:0.00635641 L:0.189671 midErr: 0.24762 largerErr: 2.24584 midPed: 16.146 effect: 0.0618182
+FINISH v31.0 totPed: 330 pedByMsgCount: 343 X:0.790335 M:0.00924214 L:0.200158 midErr: 0.262596 largerErr: 2.24584 midPed: 7.62649 effect: 0.145303
+FINISH v32.0 totPed: 335 pedByMsgCount: 358 X:0.790189 M:0.00528302 L:0.204277 midErr: 0.265652 largerErr: 2.24584 midPed: 7.66214 effect: 0.0897917
+FINISH v33.0 totPed: 649 pedByMsgCount: 775 X:0.810426 M:0.00494234 L:0.184514 midErr: 0.239817 largerErr: 2.24584 midPed: 15.6112 effect: 0.0695652
+FINISH v34.0 totPed: 322 pedByMsgCount: 334 X:0.750806 M:0.0118153 L:0.237111 midErr: 0.313012 largerErr: 2.24584 midPed: 7.39389 effect: 0.187791
+FINISH v35.0 totPed: 511 pedByMsgCount: 594 X:0.781045 M:0.00518056 L:0.213622 midErr: 0.276241 largerErr: 1.66187 midPed: 12.1426 effect: 0.0480769
+FINISH v36.0 totPed: 458 pedByMsgCount: 553 X:0.758615 M:0.0039383 L:0.237283 midErr: 0.304872 largerErr: 2.24584 midPed: 11.3718 effect: 0.0876812
+FINISH v37.0 totPed: 525 pedByMsgCount: 634 X:0.816717 M:0.0034828 L:0.179655 midErr: 0.232303 largerErr: 2.24584 midPed: 13.0475 effect: 0.222917
+FINISH v38.0 totPed: 382 pedByMsgCount: 425 X:0.761587 M:0.0131524 L:0.225052 midErr: 0.300067 largerErr: 2.12104 midPed: 8.98812 effect: 0.0879329
+FINISH v39.0 totPed: 316 pedByMsgCount: 328 X:0.754162 M:0.0108213 L:0.234739 midErr: 0.309237 largerErr: 2.24584 midPed: 7.31749 effect: 0.115356
+FINISH v4.0 totPed: 478 pedByMsgCount: 551 X:0.765267 M:0.00609053 L:0.228477 midErr: 0.296909 largerErr: 1.66187 midPed: 11.5874 effect: 0.0772543
+FINISH v40.0 totPed: 521 pedByMsgCount: 609 X:0.809603 M:0.00455858 L:0.185686 midErr: 0.24073 largerErr: 2.24584 midPed: 12.8756 effect: 0.163796
+FINISH v41.0 totPed: 377 pedByMsgCount: 425 X:0.758465 M:0.00342906 L:0.237891 midErr: 0.306528 largerErr: 2.24584 midPed: 8.96435 effect: 0.13782
+FINISH v42.0 totPed: 554 pedByMsgCount: 658 X:0.759082 M:0.00850777 L:0.232275 midErr: 0.304462 largerErr: 2.24584 midPed: 13.6231 effect: 0.176
+FINISH v43.0 totPed: 515 pedByMsgCount: 621 X:0.782846 M:0.00546206 L:0.211544 midErr: 0.274802 largerErr: 2.24584 midPed: 12.7436 effect: 0.157639
+FINISH v44.0 totPed: 617 pedByMsgCount: 749 X:0.826518 M:0.00404016 L:0.169319 midErr: 0.220516 largerErr: 2.24584 midPed: 14.9847 effect: 0.168116
+FINISH v45.0 totPed: 420 pedByMsgCount: 458 X:0.771739 M:0.00711462 L:0.220949 midErr: 0.287483 largerErr: 1.66187 midPed: 9.77419 effect: 0.10035
+FINISH v46.0 totPed: 467 pedByMsgCount: 536 X:0.798103 M:0.00897696 L:0.192751 midErr: 0.255523 largerErr: 2.24584 midPed: 11.1087 effect: 0.127448
+FINISH v47.0 totPed: 587 pedByMsgCount: 698 X:0.823148 M:0.00583885 L:0.170884 midErr: 0.223911 largerErr: 2.24584 midPed: 14.2581 effect: 0.263452
+FINISH v48.0 totPed: 536 pedByMsgCount: 637 X:0.747307 M:0.0060941 L:0.246457 midErr: 0.319845 largerErr: 2.12104 midPed: 13.3175 effect: 0.198682
+FINISH v49.0 totPed: 642 pedByMsgCount: 797 X:0.825645 M:0.00559488 L:0.168646 midErr: 0.220537 largerErr: 2.24584 midPed: 16.0051 effect: 0.264103
+FINISH v5.0 totPed: 502 pedByMsgCount: 589 X:0.795192 M:0.00686856 L:0.197783 midErr: 0.258611 largerErr: 2.24584 midPed: 11.8744 effect: 0.16
+FINISH v6.0 totPed: 540 pedByMsgCount: 643 X:0.750984 M:0.00646794 L:0.242407 midErr: 0.314342 largerErr: 2.12104 midPed: 13.0917 effect: 0.212751
+FINISH v7.0 totPed: 547 pedByMsgCount: 657 X:0.76748 M:0.00397587 L:0.228407 midErr: 0.295251 largerErr: 2.24584 midPed: 13.7097 effect: 0.13631
+FINISH v8.0 totPed: 505 pedByMsgCount: 586 X:0.808984 M:0.00326391 L:0.187597 midErr: 0.243077 largerErr: 2.24584 midPed: 12.107 effect: 0
+FINISH v9.0 totPed: 616 pedByMsgCount: 744 X:0.799215 M:0.00490316 L:0.195759 midErr: 0.254708 largerErr: 2.24584 midPed: 15.1019 effect: 0.168519
+
+End.
+[100%] Built target run_vru_detection
